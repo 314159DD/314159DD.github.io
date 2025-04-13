@@ -296,21 +296,29 @@
             max-width: 350px;
             text-align: center;
         }
-        
+
+        /* Make "AI-Powered Trading Ecosystem" span 2 columns */
+        #projects .card {
+            flex: 1 1 calc(66.66% - 30px); /* Take 2/3 of the row */
+            max-width: 100%; /* Allow full width */
+            text-align: left;;
+        }
+
+        /* Hover effect for cards */
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Slightly larger title */
             margin-bottom: 15px;
             color: var(--primary);
             font-weight: 600;
         }
         
         .card p {
-            font-size: 1rem;
+            font-size: 1.1rem; /* Slightly larger text */
             color: #555;
             margin-bottom: 20px;
             line-height: 1.6;
@@ -619,38 +627,83 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem; /* Reduce font size for better fit */
+                line-height: 1.2;
             }
             
             header p {
-                font-size: 1.1rem;
+                font-size: 1rem; /* Adjust paragraph font size */
+                line-height: 1.5;
+                margin-bottom: 1rem;
             }
             
             .tech-tags {
-                gap: 8px;
+                gap: 6px; /* Reduce spacing between tags */
             }
             
             .tech-tag {
-                padding: 6px 12px;
+                padding: 5px 10px; /* Adjust padding for smaller screens */
                 font-size: 0.8rem;
             }
             
             h2 {
-                font-size: 2.2rem;
-                margin-bottom: 2rem;
+                font-size: 2rem; /* Reduce font size for section headers */
+                margin-bottom: 1.5rem;
             }
             
             .card {
-                padding: 30px;
-                min-width: 100%;
+                padding: 20px; /* Reduce padding inside cards */
+                min-width: 100%; /* Ensure cards take full width */
+                margin-bottom: 20px; /* Add spacing between cards */
             }
             
-            .strategy-container {
-                padding: 30px 20px;
+            .card h3 {
+                font-size: 1.4rem; /* Adjust card title font size */
+                margin-bottom: 10px;
             }
             
+            .card p {
+                font-size: 1rem; /* Adjust card text font size */
+                line-height: 1.5;
+            }
+            
+            /* Skills chips */
+            .skills-container {
+                gap: 10px; /* Reduce spacing between skill chips */
+            }
+            
+            .skill-chip {
+                padding: 8px 12px; /* Adjust padding for smaller screens */
+                font-size: 0.8rem;
+            }
+            
+            /* Contact form */
+            .contact-form {
+                padding: 0 10px; /* Add padding for better spacing */
+            }
+            
+            .form-control {
+                padding: 15px; /* Adjust input padding */
+                font-size: 0.9rem; /* Adjust input font size */
+            }
+            
+            .submit-btn {
+                padding: 15px 30px; /* Adjust button padding */
+                font-size: 0.9rem; /* Adjust button font size */
+            }
+            
+            /* Section padding */
             section {
-                padding: 70px 20px;
+                padding: 50px 15px; /* Reduce section padding */
+            }
+            
+            /* Footer */
+            footer {
+                padding: 40px 15px; /* Adjust footer padding */
+            }
+            
+            footer p {
+                font-size: 0.8rem; /* Adjust footer text size */
             }
         }
 
@@ -795,6 +848,92 @@
             background: var(--primary);
             border-radius: 2px;
         }
+
+        /* Responsive adjustments for better readability */
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            header h1 {
+                font-size: 2.5rem; /* Reduce font size for better fit */
+                line-height: 1.2;
+            }
+
+            header p {
+                font-size: 1rem; /* Adjust paragraph font size */
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+
+            .tech-tags {
+                gap: 6px; /* Reduce spacing between tags */
+            }
+
+            .tech-tag {
+                padding: 5px 10px; /* Adjust padding for smaller screens */
+                font-size: 0.8rem;
+            }
+
+            /* Section headers */
+            h2 {
+                font-size: 2rem; /* Reduce font size for section headers */
+                margin-bottom: 1.5rem;
+            }
+
+            /* Cards */
+            .card {
+                padding: 20px; /* Reduce padding inside cards */
+                min-width: 100%; /* Ensure cards take full width */
+                margin-bottom: 20px; /* Add spacing between cards */
+            }
+
+            .card h3 {
+                font-size: 1.2rem; /* Adjust card title font size */
+                margin-bottom: 10px;
+            }
+
+            .card p {
+                font-size: 0.9rem; /* Adjust card text font size */
+                line-height: 1.4;
+            }
+
+            /* Skills chips */
+            .skills-container {
+                gap: 10px; /* Reduce spacing between skill chips */
+            }
+
+            .skill-chip {
+                padding: 8px 12px; /* Adjust padding for smaller screens */
+                font-size: 0.8rem;
+            }
+
+            /* Contact form */
+            .contact-form {
+                padding: 0 10px; /* Add padding for better spacing */
+            }
+
+            .form-control {
+                padding: 15px; /* Adjust input padding */
+                font-size: 0.9rem; /* Adjust input font size */
+            }
+
+            .submit-btn {
+                padding: 15px 30px; /* Adjust button padding */
+                font-size: 0.9rem; /* Adjust button font size */
+            }
+
+            /* Section padding */
+            section {
+                padding: 50px 15px; /* Reduce section padding */
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 15px; /* Adjust footer padding */
+            }
+
+            footer p {
+                font-size: 0.8rem; /* Adjust footer text size */
+            }
+        }
     </style>
 </head>
 <body>
@@ -880,6 +1019,7 @@
                 </li>
             </ul>
             <div class="skills-container" style="margin-top: 25px;">
+                <span class="skill-chip"><i class="fas fa-layer-group"></i> Platform</span>
                 <span class="skill-chip"><i class="fas fa-robot"></i> AI Trading</span>
                 <span class="skill-chip"><i class="fab fa-node-js"></i> Node.js</span>
                 <span class="skill-chip"><i class="fab fa-react"></i> React</span>
