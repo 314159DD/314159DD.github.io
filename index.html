@@ -327,52 +327,22 @@
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+            gap: 15px; /* Maintain spacing between items */
+            justify-content: center; /* Center align the items */
+            align-items: center; /* Ensure vertical alignment */
         }
         
         .skill-chip {
             background: var(--primary);
             color: white;
-            padding: 8px 15px;
+            padding: 10px 20px; /* Adjust padding for better spacing */
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 1rem; /* Ensure consistent font size */
             display: inline-flex;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 143, 255, 0.2);
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-        
-        .skill-chip i {
-            margin-right: 8px;
-            font-size: 0.8rem;
-        }
-        
-        .skill-chip:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(28, 185, 146, 0.3);
-        }
-        
-        /* Skills chips */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-            justify-content: center;
-        }
-        
-        .skill-chip {
-            background: var(--primary);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            align-items: center; /* Center align icon and text */
             box-shadow: 0 4px 15px rgba(0, 143, 255, 0.2);
-            display: flex;
-            align-items: center;
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Prevent text wrapping */
         }
         
         .skill-chip i {
@@ -433,7 +403,7 @@
             max-width: 700px;
             margin: 0 auto;
             color: #555;
-            font-size: 2.4rem;
+            font-size: clamp(1rem, 2.4vw, 1.4rem); /* Scales between 1rem and 1.4rem */
             opacity: 0.9;
             position: relative;
         }
@@ -669,12 +639,14 @@
             
             /* Skills chips */
             .skills-container {
-                gap: 10px; /* Reduce spacing between skill chips */
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Max 3 per row */
+                gap: 15px; /* Maintain spacing between items */
             }
             
             .skill-chip {
-                padding: 8px 12px; /* Adjust padding for smaller screens */
-                font-size: 0.8rem;
+                font-size: 0.9rem; /* Slightly smaller font size for mobile */
+                padding: 8px 15px; /* Adjust padding for smaller screens */
             }
             
             /* Contact form */
@@ -897,12 +869,14 @@
 
             /* Skills chips */
             .skills-container {
-                gap: 10px; /* Reduce spacing between skill chips */
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Max 3 per row */
+                gap: 15px; /* Maintain spacing between items */
             }
 
             .skill-chip {
-                padding: 8px 12px; /* Adjust padding for smaller screens */
-                font-size: 0.8rem;
+                font-size: 0.9rem; /* Slightly smaller font size for mobile */
+                padding: 8px 15px; /* Adjust padding for smaller screens */
             }
 
             /* Contact form */
@@ -971,18 +945,40 @@
             }
         }
 
-        /* Adjust skills container for better readability on mobile */
+        /* Adjust skills container for better readability and consistent alignment */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Maintain spacing between items */
+            justify-content: center; /* Center align the items */
+            align-items: center; /* Ensure vertical alignment */
+        }
+
+        /* Adjust skill chips for consistent size and alignment */
+        .skill-chip {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px; /* Adjust padding for better spacing */
+            border-radius: 50px;
+            font-size: 1rem; /* Ensure consistent font size */
+            display: inline-flex;
+            align-items: center; /* Center align icon and text */
+            box-shadow: 0 4px 15px rgba(0, 143, 255, 0.2);
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* Ensure consistent layout on smaller screens */
         @media (max-width: 768px) {
             .skills-container {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Max 3 per row */
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Max 3 per row */
                 gap: 15px; /* Maintain spacing between items */
-                justify-content: center;
             }
 
             .skill-chip {
-                font-size: 1rem; /* Increase font size for better readability */
-                padding: 12px 18px; /* Adjust padding for better spacing */
+                font-size: 0.9rem; /* Slightly smaller font size for mobile */
+                padding: 8px 15px; /* Adjust padding for smaller screens */
             }
         }
     </style>
