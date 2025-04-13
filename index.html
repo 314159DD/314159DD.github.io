@@ -961,11 +961,13 @@
         /* Adjustments for strategy-highlight on smaller screens */
         @media (max-width: 768px) {
             .strategy-highlight {
-                font-size: 1.4rem; /* Increase font size */
+                font-size: 1.6rem; /* Increase font size for better visibility */
+                font-weight: 600; /* Make the text bolder */
             }
 
             .strategy-highlight::after {
-                height: 4px; /* Make the underline thicker */
+                height: 5px; /* Make the underline thicker */
+                bottom: -4px; /* Adjust position for better alignment */
             }
         }
     </style>
