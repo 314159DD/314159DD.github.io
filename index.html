@@ -1141,28 +1141,29 @@
     <div class="section-bg" style="background: radial-gradient(circle at center, var(--accent), transparent 70%); opacity: 0.05;"></div>
     <div class="section-content">
         <h2>Get In Touch</h2>
-        <div class="contact-form">
+        <form class="contact-form" action="https://formspree.io/f/meoadvej" method="POST">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name" required>
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Your Email" required>
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
             </div>
             <div class="form-group">
-                <textarea class="form-control" placeholder="Your Message" required></textarea>
+                <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-        </div>
+        </form>
     </div>
 </section>
+
 
 <!-- Footer -->
 <footer>
     <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a target="_blank" href="https://github.com/314159DD" class="social-link"><i class="fab fa-github"></i></a>
+        <a target="_blank" href="#" class="social-link"><i class="fab fa-twitter"></i></a>
         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+        <a target="_blank" href="https://t.me/BloomSolana_bot?start=ref_RR6TNLBVTA" class="social-link"><i class="fab fa-telegram"></i></a>
         <p style="font-size:0.8rem; opacity:0.7; margin-top:1rem;">
             All trading strategies discussed are theoretical examples and not financial advice.
         </p>
