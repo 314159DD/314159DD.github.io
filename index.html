@@ -1238,6 +1238,14 @@
     #cardWrapper {
       transition: opacity 0.5s;
     }
+
+    .card.no-gradient::before {
+      display: none !important;
+    }
+
+    #experienceSection .timeline::before {
+      display: none !important;
+    }
   </style>
 
   <link
@@ -1408,8 +1416,8 @@
               Workflow chaining, credential handling, GPT-enhanced pipelines</span></span>,
             Zapier,
             Tampermonkey,
-            <span class="tooltip">REST APIs<span class="tooltiptext">
-              Webhook chaining, polling logic, token-based auth</span></span>,
+            <span class="tooltip">REST APIs,<span class="tooltiptext">
+              Webhook chaining, polling logic, token-based auth</span></span>
             <span class="tooltip">Browser Scripting<span class="tooltiptext">
               DOM mutation, UI overlays, form automation</span></span>
           </p>
