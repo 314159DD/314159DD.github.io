@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MTG Commander Decks</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#111318;
+      --muted:#9aa4b2;
+      --text:#e7eaee;
+      --brand:#6ee7ff;
+      --chip:#1a1f27;
+      --accent:#82ffc3;
+      --ring:rgba(130,255,195,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(1000px 400px at 10% -10%, rgba(130,255,195,.08), transparent 60%),
+        radial-gradient(800px 300px at 90% 0%, rgba(110,231,255,.07), transparent 60%),
+        var(--bg);
+      background-repeat:no-repeat, no-repeat, no-repeat;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1200px; margin:0 auto; padding:28px 20px 60px}
+    header{display:flex; gap:16px; align-items:center; justify-content:space-between; margin-bottom:22px}
+    .title{font-weight:800; font-size:clamp(22px,3vw,34px); letter-spacing:.2px}
+    .sub{color:var(--muted); font-size:14px}
+    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      background:linear-gradient(180deg,#1b2330,#11161f);
+      color:#e8f7ff; border:1px solid #233042; border-radius:10px;
+      padding:10px 14px; font-weight:600; font-size:14px;
+      box-shadow:0 0 0 0 var(--ring);
+      transition:.25s cubic-bezier(.22,.61,.36,1);
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 30px -10px var(--ring)}
+    .grid{
+      display:grid; gap:16px;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+    @media (max-width:1100px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr))} }
+    @media (max-width:820px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (max-width:540px){ .grid{grid-template-columns:1fr} }
+    .grid.grid-favorites{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:820px){ .grid.grid-favorites{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (max-width:540px){ .grid.grid-favorites{grid-template-columns:1fr} }
+
+    .card{
+      background:linear-gradient(180deg,#0e1116 0%, #0c0f13 100%);
+      border:1px solid #1b222c; border-radius:14px; overflow:hidden;
+      position:relative; isolation:isolate;
+      transition:transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s cubic-bezier(.22,.61,.36,1), border-color .28s cubic-bezier(.22,.61,.36,1);
+      animation:pop .5s var(--d, 0s) both cubic-bezier(.22,.61,.36,1);
+      will-change: transform, box-shadow;
+    }
+    .card::before{content:""; position:absolute; inset:-2px; border-radius:16px; background:radial-gradient(60% 80% at 20% 0%, rgba(110,231,255,.18), transparent 60%), radial-gradient(70% 90% at 100% 100%, rgba(130,255,195,.16), transparent 55%); filter: blur(18px); opacity:0; transform:scale(.98); transition: opacity .35s cubic-bezier(.22,.61,.36,1), transform .35s cubic-bezier(.22,.61,.36,1); pointer-events:none; z-index:0}
+    .card:hover{transform:translateY(-6px); border-color:#283244; box-shadow:0 30px 70px -36px rgba(0,0,0,.75), 0 0 0 1px var(--ring) inset, 0 0 38px -10px rgba(110,231,255,.45)}
+    .card:hover::before{opacity:1; transform:scale(1.02)}
+    .card:focus-visible, .card:focus-within{outline:0; border-color:#2b3a4d; box-shadow:0 0 0 2px var(--ring) inset, 0 28px 60px -34px rgba(0,0,0,.7)}
+    @keyframes pop{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+    .card .card-hit{position:absolute; inset:0; z-index:3; border-radius:inherit}
+
+    .media{
+      position:relative; aspect-ratio:16/9; background:#fff;
+      display:grid; place-items:center; border-bottom:1px solid #1b222c;
+    }
+    .media img{width:100%; height:100%; object-fit:cover; display:block; transition: transform .35s cubic-bezier(.22,.61,.36,1)}
+    .card:hover .media img{transform: scale(1.03)}
+    .ph{
+      width:100%; height:100%;
+      background-image:
+        radial-gradient(60% 100% at 50% 0%, rgba(110,231,255,.18), transparent 60%),
+        radial-gradient(100% 80% at 100% 100%, rgba(130,255,195,.12), transparent 50%),
+        linear-gradient(135deg, #131a22, #0b0f14);
+    }
+    .price{
+      position:absolute; right:10px; top:10px; z-index:2;
+      background:linear-gradient(180deg,#0f1720,#0b1016);
+      border:1px solid #243041; color:#c7f7ff;
+      font-weight:800; font-size:13px; padding:6px 9px; border-radius:9px;
+      backdrop-filter: blur(4px);
+    }
+    .body{padding:14px 14px 16px}
+    .name{font-weight:800; line-height:1.15; font-size:16px; margin:0 0 6px}
+    .desc{color:#cdd5df; font-size:13.5px; margin:8px 0 10px}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .chip{
+      background:var(--chip); border:1px solid #26303d; color:#c9d3e0;
+      font-size:12px; padding:6px 8px; border-radius:999px; line-height:1; white-space:nowrap;
+    }
+    .hr{height:1px; background:#1a202a; margin:10px 0 12px; border:0}
+    .sep{height:1px; border:0; margin:40px 0; background:linear-gradient(90deg, transparent, #1a202a, transparent)}
+    footer{
+      margin-top:26px; color:var(--muted); font-size:12px; text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="title">MTG Commander Decks</div>
+        <div class="sub">Stevens Commander Wishlist.</div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://www.cardmarket.com/en/Magic/Products/Search?category=-1&searchString=Commander+Deck&category=-1" target="_blank" rel="noopener">Check Prices ↗</a>
+        <a class="btn" href="https://cardgamebase.com/commander-precons/#Duskmourn_House_of_Horror_Commander_Precons" target="_blank" rel="noopener">Get Deck Info ↗</a>
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- 1 -->
+      <article class="card" style="--d:.02s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons/#Temur_Roar" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/6ULeO2l.png" alt="Temur Roar banner" loading="lazy">
+          <div class="price">46 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Temur Roar — Tarkir: Dragonstorm</h3>
+          <div class="row">
+            <span class="chip">Theme: Ramp, Dragons</span>
+            <span class="chip">Colors: Blue · Red · Green</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Big ass fucking dragons. Perhaps the coolest creatures in Magic are heavily represented in this precon.</p>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card" style="--d:.04s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Veloci-Ramp-Tor" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/KDXHO18.png" alt="Veloci-Ramp-Tor banner" loading="lazy">
+          <div class="price">98 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Veloci-Ramp-Tor — Lost Caverns of Ixalan</h3>
+          <div class="row">
+            <span class="chip">Theme: Dinosaurs, Ramp</span>
+            <span class="chip">Colors: White · Red · Green</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">HUUGE dinos. Ramp hard, stomp harder.</p>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card" style="--d:.06s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Food_and_Fellowship" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/zRmxNxR.png" alt="Food and Fellowship banner" loading="lazy">
+          <div class="price">63.88 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Food and Fellowship — Lord of the Rings</h3>
+          <div class="row">
+            <span class="chip">Theme: Food tokens, life gain, tokens</span>
+            <span class="chip">Colors: White · Black · Green</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Make food, then use food to end games. Frodo as Ring-bearer + token engines = surprisingly lethal kitchen.</p>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card" style="--d:.08s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Riders_of_Rohan" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/E4idBG8.png" alt="Riders of Rohan banner" loading="lazy">
+          <div class="price">47.50 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Riders of Rohan — Lord of the Rings</h3>
+          <div class="row">
+            <span class="chip">Theme: Human tribal, Monarch</span>
+            <span class="chip">Colors: White · Blue · Red</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Command the hosts of Rohan. Aggressive and very strong.</p>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card" style="--d:.10s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Explorers_of_the_Deep" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/690psek.png" alt="Explorers of the Deep banner" loading="lazy">
+          <div class="price">72 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Explorers of the Deep — Lost Caverns Precons</h3>
+          <div class="row">
+            <span class="chip">Theme: Merfolk, +1/+1 counters, Explore</span>
+            <span class="chip">Colors: Blue · Green</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Play fish, buff fish, fuck shit up</p>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card" style="--d:.12s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Cavalry_Charge" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/hFcmH3O.png" alt="Cavalry Charge banner" loading="lazy">
+          <div class="price">93 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Cavalry Charge — March of the Machine</h3>
+          <div class="row">
+            <span class="chip">Theme: Knight tribal</span>
+            <span class="chip">Colors: White · Blue · Black</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Because knights are cool. Attack triggers, card velocity, and armor up.</p>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="card" style="--d:.14s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Urzas_Iron_Alliance" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/hkQlai3.png" alt="Urza’s Iron Alliance banner" loading="lazy">
+          <div class="price">80 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Urza’s Iron Alliance — The Brothers’ War</h3>
+          <div class="row">
+            <span class="chip">Theme: Go-wide artifacts</span>
+            <span class="chip">Colors: White · Blue · Black</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Artifact swarms into massive Constructs. Steel your board and snowball.</p>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="card" style="--d:.16s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons/#Endless_Punishment" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/ArUn67e.png" alt="Endless Punishment banner" loading="lazy">
+          <div class="price">120 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Endless Punishment — Duskmourn: House of Horror</h3>
+          <div class="row">
+            <span class="chip">Theme: Tax & bleed</span>
+            <span class="chip">Colors: Black · Red</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Make opponents pay for everything - with life lol. Card advantage while they slowly bleed out.</p>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="card" style="--d:.18s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons/#Quick_Draw" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/SWGGkxW.png" alt="Quick Draw banner" loading="lazy">
+          <div class="price">68 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Quick Draw — Outlaws of Thunder Junction</h3>
+          <div class="row">
+            <span class="chip">Theme: Cast multiple spells</span>
+            <span class="chip">Colors: Blue · Red</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Draw a ton, cast a ton, chain turns together. gottagofast</p>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="card" style="--d:.20s" tabindex="0">
+        <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Virtue_and_Valor" target="_blank" rel="noopener"></a>
+        <div class="media">
+          <img src="https://i.imgur.com/4fglUCW.png" alt="Virtue and Valor banner" loading="lazy">
+          <div class="price">29.50 €</div>
+        </div>
+        <div class="body">
+          <h3 class="name">Virtue and Valor — Wilds of Eldraine</h3>
+          <div class="row">
+            <span class="chip">Theme: Auras & enchanted creatures</span>
+            <span class="chip">Colors: White · Green</span>
+          </div>
+          <hr class="hr">
+          <p class="desc">Buffs and Auras all day.</p>
+        </div>
+      </article>
+    </section>
+    <hr class="sep">
+
+    <!-- Absolute Fan Favorites -->
+    <section style="margin-top:60px">
+      <h2 style="font-weight:800; font-size:clamp(20px,2.5vw,28px); margin:0 0 20px">Absolute Fan Favorites</h2>
+      <div class="grid grid-favorites">
+        
+        <!-- Draconic Domination -->
+        <article class="card" style="--d:.02s" tabindex="0">
+          <a class="card-hit" href="https://cardgamebase.com/commander-precons-2011-2019/#Draconic_Domination" target="_blank" rel="noopener"></a>
+          <div class="media">
+            <img src="https://i.imgur.com/aWDsP7T.png" alt="Draconic Domination banner" loading="lazy">
+            <div class="price">300 €</div>
+          </div>
+          <div class="body">
+            <h3 class="name">Draconic Domination — Commander 2017</h3>
+            <div class="row">
+              <span class="chip">Theme: Dragons, Ramp, Tribal</span>
+              <span class="chip">Colors: W · U · B · R · G</span>
+            </div>
+            <hr class="hr">
+            <p class="desc">The <strong>Ur-Dragon</strong> precon. Ramp hard, drop the biggest flying monsters, and overwhelm with dragon tribal synergy. The dragon fan-favorite.</p>
+          </div>
+        </article>
+
+        <!-- Party Time -->
+        <article class="card" style="--d:.04s" tabindex="0">
+          <a class="card-hit" href="https://cardgamebase.com/commander-precons-2022-2023/#Party_Time" target="_blank" rel="noopener"></a>
+          <div class="media">
+            <img src="https://i.imgur.com/VUC4z8u.png" alt="Party Time banner" loading="lazy">
+            <div class="price">64.50 €</div>
+          </div>
+          <div class="body">
+            <h3 class="name">Party Time — CL: Battle for Baldur’s Gate</h3>
+            <div class="row">
+              <span class="chip">Theme: Party mechanic</span>
+              <span class="chip">Colors: White · Black</span>
+            </div>
+            <hr class="hr">
+            <p class="desc">Build a full <strong>D&D adventuring party</strong> (Cleric, Rogue, Warrior, Wizard) for buffs + card advantage. Flavorful, fun, and strong.</p>
+          </div>
+        </article>
+
+        <!-- Planar Portal -->
+        <article class="card" style="--d:.06s" tabindex="0">
+          <a class="card-hit" href="https://cardgamebase.com/commander-precons-2020-2021/#Planar_Portal" target="_blank" rel="noopener"></a>
+          <div class="media">
+            <img src="https://i.imgur.com/w3ZK0wk.png" alt="Planar Portal banner" loading="lazy">
+            <div class="price">70 €</div>
+          </div>
+          <div class="body">
+            <h3 class="name">Planar Portal — AFR Commander</h3>
+            <div class="row">
+              <span class="chip">Theme: Exile casting, Treasures</span>
+              <span class="chip">Colors: Black · Red</span>
+            </div>
+            <hr class="hr">
+            <p class="desc">Centered on <strong>Prosper, Tome-Bound</strong>. Generate treasures, cast from exile, and snowball into explosive combos. A modern classic.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+    <hr class="sep">
+
+    <!-- Honorable Mentions -->
+    <section style="margin-top:60px">
+      <h2 style="font-weight:800; font-size:clamp(20px,2.5vw,28px); margin:0 0 20px">Honorable Mentions</h2>
+      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px; max-width:600px">
+        <li style="background:var(--card); border:1px solid #1b222c; padding:0; border-radius:10px; font-size:14px; overflow:hidden">
+          <a href="https://cardgamebase.com/commander-precons/#Death_Toll" target="_blank" rel="noopener" style="display:block; padding:10px 14px; color:inherit; text-decoration:none">Death Toll — 30 €</a>
+        </li>
+        <li style="background:var(--card); border:1px solid #1b222c; padding:0; border-radius:10px; font-size:14px; overflow:hidden">
+          <a href="https://cardgamebase.com/commander-precons/#Peace_Offering" target="_blank" rel="noopener" style="display:block; padding:10px 14px; color:inherit; text-decoration:none">Peace Offering — 75 €</a>
+        </li>
+        <li style="background:var(--card); border:1px solid #1b222c; padding:0; border-radius:10px; font-size:14px; overflow:hidden">
+          <a href="https://cardgamebase.com/commander-precons/#Animated_Army" target="_blank" rel="noopener" style="display:block; padding:10px 14px; color:inherit; text-decoration:none">Animated Army — 60 €</a>
+        </li>
+        <li style="background:var(--card); border:1px solid #1b222c; padding:0; border-radius:10px; font-size:14px; overflow:hidden">
+          <a href="https://cardgamebase.com/commander-precons/#Miracle_Worker" target="_blank" rel="noopener" style="display:block; padding:10px 14px; color:inherit; text-decoration:none">Miracle Worker — 40 €</a>
+        </li>
+        <li style="background:var(--card); border:1px solid #1b222c; padding:0; border-radius:10px; font-size:14px; overflow:hidden">
+          <a href="https://cardgamebase.com/commander-precons/#Tricky_Terrain" target="_blank" rel="noopener" style="display:block; padding:10px 14px; color:inherit; text-decoration:none">Tricky Terrain — 40 €</a>
+        </li>
+        <li style="background:var(--card); border:1px solid #1b222c; padding:0; border-radius:10px; font-size:14px; overflow:hidden">
+          <a href="https://cardgamebase.com/commander-precons-2011-2019/#Plunder_the_Graves" target="_blank" rel="noopener" style="display:block; padding:10px 14px; color:inherit; text-decoration:none">Plunder the Graves — 95 €</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Alle Angaben ohne Gewähr. Glücksspiel kann süchtig machen.</p>
+    </footer>
+  </div>
+</body>
+</html>
