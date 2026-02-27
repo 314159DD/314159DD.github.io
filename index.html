@@ -657,7 +657,6 @@
         overflow: hidden;
         width: 100%;
         min-height: 200px;
-        touch-action: pan-y pinch-zoom;
         }
 
         .project-slide {
@@ -2649,44 +2648,6 @@
       animateSlide(nextIndex, 'right');
     });
 
-    // Touch swipe support
-    const slider = document.querySelector(".project-slider");
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    slider.addEventListener("touchstart", (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-      swiping = false;
-    }, { passive: true });
-
-    // Prevent horizontal page scroll while swiping the slider
-    let touchStartY = 0;
-    let swiping = false;
-    slider.addEventListener("touchmove", (e) => {
-      const dx = Math.abs(e.changedTouches[0].screenX - touchStartX);
-      const dy = Math.abs(e.changedTouches[0].screenY - touchStartY);
-      if (dx > dy && dx > 10) {
-        swiping = true;
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    slider.addEventListener("touchend", (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) { // minimum swipe distance
-        if (diff > 0) {
-          // Swiped left → next slide
-          const nextIndex = (current + 1) % slides.length;
-          animateSlide(nextIndex, 'right');
-        } else {
-          // Swiped right → prev slide
-          const nextIndex = (current - 1 + slides.length) % slides.length;
-          animateSlide(nextIndex, 'left');
-        }
-      }
-    }, { passive: true });
     });
 
     // After the slider JS
