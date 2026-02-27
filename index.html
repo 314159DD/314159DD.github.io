@@ -1283,6 +1283,22 @@
         position: relative;
         z-index: 1;
       }
+      /* Allow cards to scroll internally when content exceeds viewport */
+      #cardWrapper section .card {
+        max-height: calc(100vh - var(--header-height) - 80px);
+        overflow-y: auto;
+      }
+      #cardWrapper section .card::-webkit-scrollbar {
+        width: 6px;
+      }
+      #cardWrapper section .card::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      #cardWrapper section .card::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 3px;
+        opacity: 0.5;
+      }
     }
 
     @media (max-width: 480px) {
