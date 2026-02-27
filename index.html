@@ -1283,22 +1283,6 @@
         position: relative;
         z-index: 1;
       }
-      /* Allow cards to scroll internally when content exceeds viewport */
-      #cardWrapper section .card {
-        max-height: calc(100vh - var(--header-height) - 80px);
-        overflow-y: auto;
-      }
-      #cardWrapper section .card::-webkit-scrollbar {
-        width: 6px;
-      }
-      #cardWrapper section .card::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      #cardWrapper section .card::-webkit-scrollbar-thumb {
-        background: var(--accent);
-        border-radius: 3px;
-        opacity: 0.5;
-      }
     }
 
     @media (max-width: 480px) {
@@ -2254,6 +2238,31 @@
       }
     }
 
+    // Auto-scale cards to fit viewport on desktop
+    function scaleCardsToFit() {
+      if (window.innerWidth <= 768) {
+        // Reset any scaling on mobile
+        wrapper.querySelectorAll('section .card').forEach(card => {
+          card.style.transform = '';
+        });
+        return;
+      }
+      const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 0;
+      const available = window.innerHeight - headerHeight - 40; // 40px breathing room
+      wrapper.querySelectorAll('section').forEach(sec => {
+        const card = sec.querySelector('.card');
+        if (!card) return;
+        // Reset scale to measure natural height
+        card.style.transform = '';
+        const natural = card.scrollHeight;
+        if (natural > available) {
+          const scale = Math.max(available / natural, 0.65); // don't go below 65%
+          card.style.transform = `scale(${scale})`;
+          card.style.transformOrigin = 'center center';
+        }
+      });
+    }
+
     // Update intersection observer for better fade effect
     const cardObserver = new IntersectionObserver(
       (entries) => {
@@ -2275,6 +2284,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         setupCards();
+        scaleCardsToFit();
         // Force fade-in for the first section on initial load ONLY
         const aboutSection = document.getElementById('aboutSection');
         if (aboutSection && !aboutSection.classList.contains('visible')) {
@@ -2297,6 +2307,7 @@
     window.addEventListener('resize', () => {
       setTimeout(() => {
         setupCards();
+        scaleCardsToFit();
         const sections = wrapper.querySelectorAll('section');
         if (window.innerWidth > 768) {
           sections.forEach(sec => {
@@ -2326,6 +2337,7 @@
         requestAnimationFrame(() => {
             setTimeout(() => {
                 setupCards();
+                scaleCardsToFit();
                 // Force fade-in for the first section on initial load (fallback)
                 const aboutSection = document.getElementById('aboutSection');
                 if (aboutSection) {
