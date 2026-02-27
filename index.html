@@ -8,23 +8,23 @@
   />
   <link rel="shortcut icon" href="favicon.png" type="image/png">
   <!-- Primary Meta Tags -->
-  <title>Steven Obst | Full-Stack Operator, PM & Automation Architect</title>
-  <meta name="title" content="Steven Obst | Full-Stack Operator, PM & Automation Architect">
-  <meta name="description" content="Project-savvy operator with developer-level fluency. I build, automate, and scale e-commerce systems, internal tools, and AI pipelines.">
+  <title>Steven Obst | Full-Stack Developer & Technical Project Manager</title>
+  <meta name="title" content="Steven Obst | Full-Stack Developer & Technical Project Manager">
+  <meta name="description" content="Full-stack developer building AI-powered SaaS systems end-to-end. Next.js, Flask, PostgreSQL, multi-model AI pipelines, and browser automation.">
   <link rel="canonical" href="https://obststeven.info/"> <!-- Updated with your actual domain -->
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://obststeven.info/"> <!-- Updated with your actual domain -->
-  <meta property="og:title" content="Steven Obst | Full-Stack Operator & Systems Architect">
-  <meta property="og:description" content="From market needs to shipped features – I bridge business ops with technical possibilities. PM | ECOM | DEV ">
+  <meta property="og:title" content="Steven Obst | Full-Stack Developer & Technical Project Manager">
+  <meta property="og:description" content="Full-stack developer building AI-powered SaaS systems end-to-end. Next.js, Flask, PostgreSQL, multi-model AI pipelines.">
   <meta property="og:image" content="https://obststeven.info/preview.jpg"> <!-- Update with your OpenGraph image if needed -->
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://obststeven.info/"> <!-- Updated with your actual domain -->
-  <meta property="twitter:title" content="Steven Obst | Full-Stack Operator & Automation Builder">
-  <meta property="twitter:description" content="FinTech PM turned full-stack builder. Systems, automations, and LLM pipelines — built from scratch.">
+  <meta property="twitter:title" content="Steven Obst | Full-Stack Developer & Technical Project Manager">
+  <meta property="twitter:description" content="Full-stack developer building AI-powered SaaS systems. SwiftJob: multi-model AI evaluation, automated applications, real-time frontend.">
   <meta property="twitter:image" content="https://obststeven.info/preview.jpg"> <!-- Update with your OpenGraph image if needed -->
 
   <style>
@@ -106,15 +106,18 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 16px;
+      transition: font-size 0.35s ease, margin 0.35s ease;
     }
 
     .subtitle {
-      font-size: 1.25rem;
+      font-size: 1.05rem;
       opacity: 0.9;
       margin-bottom: 24px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      white-space: nowrap;
+      transition: font-size 0.35s ease, margin 0.35s ease;
     }
 
     a {
@@ -159,6 +162,37 @@
       overflow: hidden;
       background-color: var(--bg);
       z-index: 100;
+      transition: padding 0.35s ease;
+    }
+
+    header.collapsed {
+      padding-top: 10px;
+    }
+
+    header.collapsed h1 {
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+
+    header.collapsed .subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    header.collapsed .contact-links {
+      margin-top: 8px;
+      gap: 10px;
+    }
+
+    header.collapsed .contact-links a {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+    }
+
+    header.collapsed .contact-links-separator,
+    header.collapsed .contact-links-divider,
+    header.collapsed .after-contact-links-spacer {
+      height: 4px;
     }
 
     .hero-background {
@@ -202,7 +236,8 @@
       margin-top: 32px;
       border: none;
       padding-bottom: 0;
-      margin-bottom: 4px; /* Add minimal spacing below buttons */
+      margin-bottom: 4px;
+      transition: margin 0.35s ease, gap 0.35s ease;
     }
 
     .contact-links a {
@@ -330,8 +365,6 @@
 
     #cardWrapper section {
       scroll-snap-align: start;
-      opacity: 0;
-      transition: opacity 0.5s ease;
       padding: 10px 0;
       display: flex;
       justify-content: center;
@@ -339,21 +372,23 @@
       position: relative;
       z-index: 1;
       /* No margin-bottom or padding-bottom on desktop! */
-      will-change: opacity, transform; /* Prevent initial flickering */
     }
 
-    #cardWrapper section.active {
-      opacity: 1;
-    }
-
-    /* Scale effect moved to card level only */
-    #cardWrapper section .card {
+    /* Scale effect moved to wrapper level for 3D tilt compat */
+    #cardWrapper section .card-tilt-wrapper {
       transform: scale(0.97);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      transition: transform 0.5s ease;
+    }
+
+    #cardWrapper section.active .card-tilt-wrapper {
+      transform: scale(1);
+    }
+
+    #cardWrapper section .card {
+      transition: box-shadow 0.5s ease;
     }
 
     #cardWrapper section.active .card {
-      transform: scale(1);
       box-shadow: var(--shadow-hover);
     }
 
@@ -375,16 +410,7 @@
       /* No margin-bottom on desktop! */
     }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-      z-index: 1;
-    }
+    /* Left accent bar removed — gradient border handles card edge styling */
 
     .card::after {
       content: '';
@@ -400,8 +426,8 @@
     }
 
     .card:hover {
-      transform: translateY(-8px);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+      /* transform handled by 3D tilt JS */
     }
 
     .card h2 {
@@ -611,12 +637,25 @@
         text-align:center
         }
 
+       .project-outer-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+       }
+
+       .project-outer-wrapper > .card {
+        flex: 1;
+        min-width: 0;
+       }
+
         .project-slider {
         position: relative;
         overflow: hidden;
         width: 100%;
-        height: 300px;
-        min-height: 180px;
+        min-height: 200px;
         }
 
         .project-slide {
@@ -633,6 +672,7 @@
           display: block;
           opacity: 1;
           position: static;
+          padding-bottom: 8px;
         }
 
         .project-slide.animating {
@@ -644,33 +684,33 @@
         }
 
         .project-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: var(--card-bg);
         border: 1px solid var(--border);
         color: var(--primary);
-        font-weight: bold;
-        font-size: 1.25rem;
-        padding: 8px 12px;
+        font-size: 1.1rem;
         cursor: pointer;
-        border-radius: var(--radius);
+        border-radius: 50%;
         box-shadow: var(--shadow);
-        z-index: 10;
-        transition: var(--transition);
+        z-index: 100;
+        transition: all 0.3s ease;
         }
 
         .project-nav:hover {
         background: var(--primary);
         color: #fff;
+        transform: scale(1.1);
+        box-shadow: 0 4px 20px rgba(var(--primary-rgb, 99,102,241), 0.35);
         }
 
-        .project-nav.prev {
-        left: 5px;
-        }
-
-        .project-nav.next {
-        right: 5px;
+        .project-nav:active {
+        transform: scale(0.95);
         }
 
         /* Fancy slide/fade animations */
@@ -1091,6 +1131,24 @@
         margin-bottom: 0 !important;
         will-change: auto !important;
       }
+
+      /* Disable staggered reveals on mobile — all content visible */
+      #cardWrapper section .card > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition-delay: 0s !important;
+      }
+
+      /* Disable gradient border on mobile */
+      .gradient-border {
+        display: none !important;
+      }
+
+      /* Disable tilt wrapper perspective on mobile */
+      .card-tilt-wrapper {
+        perspective: none !important;
+        transform: none !important;
+      }
       #cardWrapper section:last-child {
         padding-bottom: 0;
       }
@@ -1174,6 +1232,21 @@
       .contact-links {
         margin-bottom: 12px;
       }
+      .project-outer-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+      .project-outer-wrapper > .card {
+        order: 1;
+        flex-basis: 100%;
+      }
+      .project-outer-wrapper .project-nav {
+        order: 2;
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+      }
       #projectsSection .card {
         min-height: 400px;
         padding: 16px;
@@ -1203,18 +1276,12 @@
       #cardWrapper section {
         scroll-snap-align: start;
         height: calc(100vh - var(--header-height));
-        opacity: 0;
-        transition: opacity 0.5s ease;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         z-index: 1;
-        will-change: opacity, transform;
-      }
-      #cardWrapper section.active {
-        opacity: 1;
       }
     }
 
@@ -1239,13 +1306,111 @@
       transition: opacity 0.5s;
     }
 
-    .card.no-gradient::before {
-      display: none !important;
+    /* .card.no-gradient — no longer needed, left bar removed */
+
+    /* Experience timeline line — restored to match education */
+
+    /* ===========================
+       3D CARD TILT
+       =========================== */
+    .card-tilt-wrapper {
+      perspective: 1200px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    #experienceSection .timeline::before {
-      display: none !important;
+    .card-tilt-wrapper .card {
+      transform-style: flat;
+      will-change: transform;
     }
+
+    /* ===========================
+       ANIMATED GRADIENT BORDER
+       =========================== */
+    .card-tilt-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+    }
+
+    .gradient-border {
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-lg) + 2px);
+      background: conic-gradient(
+        from var(--gradient-angle, 0deg),
+        var(--primary),
+        var(--secondary),
+        var(--primary-dark),
+        var(--primary)
+      );
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      animation: rotateGradient 4s linear infinite;
+    }
+
+    #cardWrapper section.active .gradient-border {
+      opacity: 1;
+    }
+
+    @property --gradient-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes rotateGradient {
+      to {
+        --gradient-angle: 360deg;
+      }
+    }
+
+    /* Fallback for browsers without @property */
+    @supports not (background: conic-gradient(from 0deg, red, blue)) {
+      .gradient-border {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+      }
+    }
+
+    /* ===========================
+       STAGGERED CONTENT REVEALS
+       =========================== */
+    #cardWrapper section .card > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    #cardWrapper section.active .card > * {
+      opacity: 1;
+      transform: none;
+    }
+
+    #cardWrapper section.active .card > *:nth-child(1) { transition-delay: 0.1s; }
+    #cardWrapper section.active .card > *:nth-child(2) { transition-delay: 0.2s; }
+    #cardWrapper section.active .card > *:nth-child(3) { transition-delay: 0.3s; }
+    #cardWrapper section.active .card > *:nth-child(4) { transition-delay: 0.4s; }
+    #cardWrapper section.active .card > *:nth-child(5) { transition-delay: 0.5s; }
+    #cardWrapper section.active .card > *:nth-child(6) { transition-delay: 0.6s; }
+    #cardWrapper section.active .card > *:nth-child(7) { transition-delay: 0.7s; }
+    #cardWrapper section.active .card > *:nth-child(8) { transition-delay: 0.8s; }
+    #cardWrapper section.active .card > *:nth-child(9) { transition-delay: 0.9s; }
+    #cardWrapper section.active .card > *:nth-child(10) { transition-delay: 1.0s; }
+    #cardWrapper section.active .card > *:nth-child(11) { transition-delay: 1.1s; }
+    #cardWrapper section.active .card > *:nth-child(12) { transition-delay: 1.2s; }
+    #cardWrapper section.active .card > *:nth-child(13) { transition-delay: 1.3s; }
+    #cardWrapper section.active .card > *:nth-child(14) { transition-delay: 1.4s; }
+    #cardWrapper section.active .card > *:nth-child(15) { transition-delay: 1.5s; }
+
+    /* br elements should not participate in stagger — they eat child slots */
+    #cardWrapper section .card > br {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    /* Spotlight removed — tilt + gradient border is enough interactivity */
   </style>
 
   <link
@@ -1273,12 +1438,12 @@
         </svg>
       </div>
       <h1><span class="text-gradient">Steven Obst</span></h1>
-      <p class="subtitle">Full-Stack Operator | Systems Builder | PM | Ecom | API | Automation</p>
+      <p class="subtitle">Full-Stack Developer | Technical Project Manager | AI Automation | SaaS Systems</p>
       <div class="contact-links">
-        <a href="mailto:arbeit.obst.steven@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="mailto:arbeit.obst.steven@proton.me"><i class="fas fa-envelope"></i> Email</a>
         <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Portfolio</a>
         <a href="https://github.com/314159DD" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://de.linkedin.com/in/steven-obst-158a39148" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/steven-obst-158a39148" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
       <span class="contact-links-separator"></span>
       <span class="contact-links-divider"></span>
@@ -1299,6 +1464,9 @@
           <a href="#experienceSection" title="Experience Highlights"><span></span></a>
         </li>
         <li>
+          <a href="#educationSection" title="Education"><span></span></a>
+        </li>
+        <li>
           <a href="#systemsSection" title="Systems & Architecture"><span></span></a>
         </li>
         <li><a href="#ctaSection" title="Get In Touch"><span></span></a></li>
@@ -1313,59 +1481,47 @@
     <div class="card">
       <h2>About</h2>
       <p class="text-muted">
-        Most developers can't communicate. Most PMs can't build tools — I do both.
+        Most technical problems are not purely technical and most business problems are not purely business. I work at the intersection of both.
       </p>
       <br>
       <p>
-        I'm a FinTech Project Manager with deep operational insight and an e-commerce background.<br><br>
-        I've coordinated developers, supported clients, and ran full-stack ecommerce operations.<br>
-        Now, I'm bridging into 
-        <span class="tooltip">technical automation
-          <span class="tooltiptext">
-            Scrapers, automations, internal tools — the kind I used to request from devs
-          </span>
-        </span>. Building the tools I used to ask developers for.<br>
-        Combining operational awareness with a hands-on understanding of how modern tools actually get built.
+        I started in ecommerce and fintech project management, coordinating developers, translating stakeholder needs, and delivering features in structured environments. Over time, I moved from coordinating systems to building them directly.
       </p>
       <br>
       <p>
-        A full-stack operator with dev-level fluency, coordination instincts, and product/market awareness.<br>
-        I bridge the gap between technical implementation and business objectives,<br>
-        connecting market players with technical possibilities.
+        Today I design and ship AI-powered SaaS systems end to end. I combine operational awareness with hands-on technical execution.
       </p>
       <br>
       <p>
-        From operating markets and planning offers to 
-        <span class="tooltip">scraping data
-          <span class="tooltiptext">
-            DOM parsers, pagination handling, anti-bot headers, proxy rotation, structured extraction
-          </span>
-        </span>
-        and 
-        <span class="tooltip">building tools
-          <span class="tooltiptext">
-            API-driven UIs, localStorage state sync, background script design, Chrome/Firefox extensions
-          </span>
-        </span>,<br>
-        I design lean, modular systems that deliver measurable results.
+        My work includes:
       </p>
+      <ul style="margin: 12px 0 12px 20px; line-height: 1.8;">
+        <li>Full-stack product development with Next.js, Python, and PostgreSQL</li>
+        <li>AI-driven evaluation and automation pipelines</li>
+        <li>Data aggregation and system integration</li>
+        <li>Process optimization in compliance-sensitive environments</li>
+      </ul>
       <br>
       <p>
-        Self-taught, product-minded, and fluent in APIs and e-commerce.<br>
-        I specialize in turning chaos into scalable systems.
+        I focus on building lean, modular systems designed for clarity, reliability, and measurable results.
       </p>
-
+      <br>
+      <p class="text-muted">
+        Based in Berlin. German and English. Security-aware and comfortable operating across both business and technical domains.
+      </p>
       <div style="margin-top: 30px">
-        <span class="badge">Self-taught</span>
-        <span class="badge">High-agency</span>
-        <span class="badge">Builder</span>
+        <span class="badge">Full-Stack Developer</span>
+        <span class="badge">Technical Project Management</span>
+        <span class="badge">AI Automation</span>
+        <span class="badge">SaaS Systems</span>
+        <span class="badge">Next.js</span>
+        <span class="badge">Python</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">API Integration</span>
+        <span class="badge">Workflow Automation</span>
+        <span class="badge">Security-aware</span>
+        <span class="badge">Berlin</span>
         <span class="badge">German / English</span>
-        <span class="badge">E-Commerce</span>
-        <span class="badge">Shopify</span>
-        <span class="badge">LLM</span>
-        <span class="badge">API</span>
-        <span class="badge">JavaScript</span>
-        
       </div>
     </div>
   </div>
@@ -1379,21 +1535,54 @@
       <h2>Technical Skills</h2>
       <div class="card-grid">
         <div>
-          <h3><i class="fas fa-laptop-code" style="margin-right: 10px"></i>Core Stack</h3>
+          <h3><i class="fas fa-code" style="margin-right: 10px"></i>Core Stack</h3>
           <p>
-            <span class="tooltip">Python<span class="tooltiptext">
-              Automation scripting, scraping pipelines, prompt engineering</span></span>,
-            <span class="tooltip">JavaScript<span class="tooltiptext">
-              Node.js, Chrome Extensions, GPT interfaces, frontend logic</span></span>,
-            <span class="tooltip">Bash<span class="tooltiptext">
-              Shell scripting, file processing, quick server tasks</span></span>,
-            HTML/CSS, 
-            <span class="tooltip">Excel VBA<span class="tooltiptext">
-              Data automation, reporting workflows, legacy tooling</span></span>,
-            Windows, Linux, macOS,
-            <span class="tooltip">Docker<span class="tooltiptext">
-              Local container environments, dev toolchains, quick deployment</span></span> (basic),
-            VMs
+            Python, JavaScript, TypeScript, Bash
+          </p>
+          <p>
+            Windows, Linux, macOS, Docker, VMs, Git
+          </p>
+        </div>
+
+        <div>
+          <h3><i class="fas fa-laptop-code" style="margin-right: 10px"></i>Frontend</h3>
+          <p>
+            <span class="tooltip">Next.js 15<span class="tooltiptext">
+              App Router, server/client components, middleware, SSR</span></span>,
+            <span class="tooltip">React 19<span class="tooltiptext">
+              Hooks, context, custom hooks, optimistic UI, real-time polling</span></span>,
+            <span class="tooltip">TypeScript<span class="tooltiptext">
+              Strict typing, shared interfaces, type-safe API layer</span></span>,
+            <span class="tooltip">Tailwind CSS v4<span class="tooltiptext">
+              Utility-first, custom themes, responsive design, dark mode</span></span>,
+            Framer Motion, HTML/CSS
+          </p>
+        </div>
+
+        <div>
+          <h3><i class="fas fa-server" style="margin-right: 10px"></i>Backend</h3>
+          <p>
+            <span class="tooltip">Python / Flask<span class="tooltiptext">
+              App factory, Blueprints, background workers, APScheduler, JWT auth</span></span>,
+            <span class="tooltip">Supabase PostgreSQL<span class="tooltiptext">
+              RPC functions, Row-Level Security, migrations, real-time subscriptions</span></span>,
+            <span class="tooltip">REST API Design<span class="tooltiptext">
+              65+ endpoints, auth middleware, validation, structured error handling</span></span>,
+            <span class="tooltip">Playwright<span class="tooltiptext">
+              Stealth browser automation, ATS form filling, anti-detection, human simulation</span></span>
+          </p>
+        </div>
+
+        <div>
+          <h3><i class="fas fa-robot" style="margin-right: 10px"></i>AI / LLM Engineering</h3>
+          <p>
+            <span class="tooltip">Multi-Model Orchestration<span class="tooltiptext">
+              Claude, Gemini, DeepSeek — routing by cost/capability per task</span></span>,
+            <span class="tooltip">Evaluation Pipelines<span class="tooltiptext">
+              5-tier funnel: SQL filter, Jaccard overlap, batch scoring, re-ranking</span></span>,
+            <span class="tooltip">Content Generation<span class="tooltiptext">
+              3-call cover letter pipeline: Analyst, Writer, Proofreader with PII safety</span></span>,
+            Prompt Engineering, JSON Schema Validation
           </p>
         </div>
 
@@ -1401,37 +1590,32 @@
           <h3><i class="fas fa-shopping-cart" style="margin-right: 10px"></i>E-Commerce</h3>
           <p>
             <span class="tooltip">Shopify<span class="tooltiptext">
-              Theme work, SEO enrichment, metafield logic, app flows, bulk product scripting</span></span>,
-            WooCommerce, eBay, Amazon, Otto, Kaufland,
-            <span class="tooltip">Multichannel Feeds<span class="tooltiptext">
-              Feed merging, inventory sync, conditional field mapping (CSV/XML/JSON)</span></span>,
-            Product Management, SEO Automation
+              Store setup, theme customization, product management, integrations</span></span>,
+            WooCommerce, eBay, Amazon, Otto, Kaufland
           </p>
-        </div>
-
-        <div>
-          <h3><i class="fas fa-robot" style="margin-right: 10px"></i>Automation & Integration</h3>
           <p>
-            <span class="tooltip">n8n<span class="tooltiptext">
-              Workflow chaining, credential handling, GPT-enhanced pipelines</span></span>,
-            Zapier,
-            Tampermonkey,
-            <span class="tooltip">REST APIs,<span class="tooltiptext">
-              Webhook chaining, polling logic, token-based auth</span></span>
-            <span class="tooltip">Browser Scripting<span class="tooltiptext">
-              DOM mutation, UI overlays, form automation</span></span>
+            Multichannel Feeds, Product Management, SEO Automation
           </p>
         </div>
 
         <div>
-          <h3><i class="fas fa-database" style="margin-right: 10px"></i>Data & DevOps</h3>
+          <h3><i class="fas fa-database" style="margin-right: 10px"></i>Data & Infrastructure</h3>
+          <p>
+            <span class="tooltip">Data Aggregation<span class="tooltiptext">
+              20+ sources, 10 ATS parsers, 3-layer deduplication, circuit breakers</span></span>,
+            <span class="tooltip">Supabase Auth<span class="tooltiptext">
+              JWKS verification, OAuth (Google/LinkedIn), PKCE flow, RLS policies</span></span>,
+            Docker, CRON, GitHub, Linux
+          </p>
           <p>
             <span class="tooltip">Web Scraping<span class="tooltiptext">
-              Puppeteer, Playwright, anti-bot bypassing, structured extraction</span></span>,
-            Regex, CSV Wrangling, Google Sheets (formula logic, automation glue)
+              Playwright stealth, proxy rotation, rate limiting, structured extraction</span></span>,
+            Regex, CSV Wrangling, Google Sheets
           </p>
           <p>
-            CRON Jobs, GitHub Workflows, DevOps-lite toolchains (CI scripts, keepalive systems)
+            <span class="tooltip">Automation<span class="tooltiptext">
+              n8n, Zapier, Tampermonkey, REST APIs, browser scripting</span></span>,
+            n8n, Zapier, Tampermonkey, Browser Scripting
           </p>
         </div>
       </div>
@@ -1442,16 +1626,40 @@
 <!-- ========== PROJECT HIGHLIGHTS CARD (Slider) ========== -->
 <section id="projectsSection" class="parallax-section animate delay-3">
     <div class="container">
+      <div class="project-outer-wrapper">
+      <button class="project-nav prev"><i class="fas fa-chevron-left"></i></button>
       <div class="card">
         <h2>Project Highlights</h2>
         <div class="project-slider-wrapper">
         <div class="project-slider">
-          <!-- Navigation Arrows -->
-          <button class="project-nav prev">&lt;</button>
   
-          <!-- Slide 1 -->
+          <!-- Slide 1 — SwiftJob -->
           <div class="project-slide active">
-            <img class="project-image" src="https://raw.githubusercontent.com/314159DD/314159DD.github.io/refs/heads/main/promptcompass.jpg" alt="Prompt Compass" />
+            <img class="project-image" src="assets/images/Dashboard.png" alt="SwiftJob Dashboard" />
+            <h4>
+              <span class="project-icon"><i class="fas fa-rocket"></i></span>
+              SwiftJob — AI Job Search Platform
+            </h4>
+            <p>
+              A full-stack SaaS platform that aggregates, evaluates, and automates job applications using multi-model AI pipelines.
+            </p>
+            <p style="margin-top: 10px;">
+              Built with a Next.js frontend, Python/Flask backend, and Supabase PostgreSQL — pulling from multiple job sources with deduplication and structured evaluation. Uses cost-aware model routing across Claude, Gemini, and DeepSeek to score, rank, and auto-apply to matched positions.
+            </p>
+            <div class="skill-tags" style="margin-top: 10px">
+              <span>Next.js</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Flask</span>
+              <span>PostgreSQL</span>
+              <span>Supabase</span>
+              <span>Multi-Model AI</span>
+              <span>Playwright</span>
+            </div>
+          </div>
+          <!-- Slide 2 — Prompt Compass -->
+          <div class="project-slide">
+            <img class="project-image" src="assets/images/promptcompass.jpg" alt="Prompt Compass" />
             <h4>
               <span class="project-icon"><i class="fas fa-compass"></i></span>
               Prompt Compass
@@ -1471,9 +1679,9 @@
               <span>Persistent Storage</span>
             </div>
           </div>
-          <!-- Slide 2 -->
+          <!-- Slide 3 -->
           <div class="project-slide">
-            <img class="project-image" src="https://raw.githubusercontent.com/314159DD/314159DD.github.io/refs/heads/main/jlshopping.jpg" alt="JL Shopping" />
+            <img class="project-image" src="assets/images/jlshopping.jpg" alt="JL Shopping" />
             <h4>
               <span class="project-icon"><i class="fas fa-store"></i></span>
               JL Shopping
@@ -1496,9 +1704,9 @@
               <span>SEO Automation</span>
             </div>
           </div>
-          <!-- Slide 3 -->
+          <!-- Slide 4 -->
           <div class="project-slide">
-            <img class="project-image" src="https://raw.githubusercontent.com/314159DD/314159DD.github.io/refs/heads/main/trendengine.jpg" alt="Trend Engine" />
+            <img class="project-image" src="assets/images/trendengine.jpg" alt="Trend Engine" />
             <h4>
               <span class="project-icon"><i class="fas fa-robot"></i></span>
               [redacted] Trend Engine
@@ -1519,9 +1727,9 @@
             </div>
           </div>
 
-          <!-- Slide 4 -->
+          <!-- Slide 5 -->
           <div class="project-slide">
-            <img class="project-image" src="https://raw.githubusercontent.com/314159DD/314159DD.github.io/refs/heads/main/tradingbot.jpg" alt="Solana Trading Bot" />
+            <img class="project-image" src="assets/images/tradingbot.jpg" alt="Solana Trading Bot" />
             <h4>
               <span class="project-icon"><i class="fas fa-bolt"></i></span>
               Solana Trading Bot
@@ -1543,9 +1751,9 @@
             </div>
           </div>
 
-          <!-- Slide 5 -->
+          <!-- Slide 6 -->
           <div class="project-slide">
-            <img class="project-image" src="https://raw.githubusercontent.com/314159DD/314159DD.github.io/refs/heads/main/promptfactory.jpg" alt="Prompt Pack Factory" />
+            <img class="project-image" src="assets/images/promptfactory.jpg" alt="Prompt Pack Factory" />
             <h4>
               <span class="project-icon"><i class="fas fa-cubes"></i></span>
               GPT Prompt Pack Factory
@@ -1567,10 +1775,10 @@
           </div>
 
   
-          <!-- Navigation Arrows -->
-          <button class="project-nav next">&gt;</button>
         </div>
         </div>
+      </div>
+      <button class="project-nav next"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
@@ -1582,11 +1790,29 @@
             <h2>Experience Highlights</h2>
             <div class="timeline">
               <div class="timeline-item">
-                <div class="timeline-date">2021 – 2024</div>
+                <div class="timeline-date">2024 – Present</div>
+                <h3 class="timeline-title">Founder — Full Circle UG</h3>
+                <p>
+                  AI Automation & SaaS Development.<br>
+                  Designed and built SwiftJob, a full-stack AI job search platform — data aggregation, AI-powered evaluation with cost-aware model routing, automated applications, and a real-time Next.js frontend.<br>
+                  Solo-built across the full stack: database design, API layer, auth system, frontend, and infrastructure.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">Jan 2022 – Dec 2024</div>
                 <h3 class="timeline-title">Technical Project Manager – Better Payment GmbH</h3>
                 <p>
-                  Led developer coordination, onboarding, and feature scoping for a FinTech SaaS platform.<br>
-                  Translated client needs into specs and GitHub issues, supported first-line ops, and worked directly with stakeholders on product delivery.
+                  Led developer coordination, feature scoping, and cross-team delivery for a FinTech SaaS platform.<br>
+                  Translated client needs into specs and GitHub issues, managed sprint cycles, and worked directly with stakeholders on product delivery.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">Oct 2021 – Dec 2021</div>
+                <h3 class="timeline-title">Onboarding Manager – Better Payment GmbH</h3>
+                <p>
+                  Onboarded new merchant clients onto the payment platform. Managed KYC workflows, technical integration support, and client readiness — promoted to Technical Project Manager within 3 months.
                 </p>
               </div>
 
@@ -1618,232 +1844,228 @@
         </div>
       </section>
 
+      <!-- ========== EDUCATION CARD ========== -->
+      <section id="educationSection" class="parallax-section animate delay-3">
+        <div class="container">
+          <div class="card">
+            <h2>Education</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">Dec 2024 – Dec 2025 · 1 yr 1 mo</div>
+                <h3 class="timeline-title">Infrastructure & Cybersecurity</h3>
+                <p>
+                  Masterschool Institute of Technology · Part-time<br>
+                  Berlin, Germany
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">Aug 2013 – Jul 2017</div>
+                <h3 class="timeline-title">Commercial Apprenticeship in Wholesale & International Trade</h3>
+                <p>
+                  KBBZ Saarlouis
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-date">Jan 2010 – Jan 2013</div>
+                <h3 class="timeline-title">MBA, Business</h3>
+                <p>
+                  Handelsschule KBBZ Dillingen
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ========== SYSTEMS & ARCHITECTURE CARD ========== -->
       <section id="systemsSection" class="parallax-section animate delay-3">
         <div class="container">
           <div class="card">
             <h2>Systems & Architecture</h2>
             <p class="text-muted">
-              Patterns, technologies, and workflows I design into technical systems
+              Patterns, technologies, and workflows I design into production systems
             </p>
             <div class="filter-buttons" id="filterButtons">
               <button class="filter-btn active" data-skill="all">All</button>
-              <button class="filter-btn" data-skill="architecture">
-                Architecture
-              </button>
+              <button class="filter-btn" data-skill="architecture">Architecture</button>
+              <button class="filter-btn" data-skill="ai">AI / LLM</button>
+              <button class="filter-btn" data-skill="frontend">Frontend</button>
+              <button class="filter-btn" data-skill="backend">Backend</button>
+              <button class="filter-btn" data-skill="data">Data</button>
               <button class="filter-btn" data-skill="automation">Automation</button>
               <button class="filter-btn" data-skill="ecommerce">E-Commerce</button>
-              <button class="filter-btn" data-skill="ai">AI</button>
               <button class="filter-btn" data-skill="devops">DevOps</button>
-              <button class="filter-btn" data-skill="pm">Project Ops</button>
-              <button class="filter-btn" data-skill="data">Data</button>
-              <button class="filter-btn" data-skill="frontend">Frontend</button>
+              <button class="filter-btn" data-skill="pm">Product / PM</button>
             </div>
 
             <div class="skill-tags" id="skillTags">
               <!-- Architecture -->
               <span data-skill="architecture" class="tooltip"
                 >Modular Design<span class="tooltiptext"
-                  >Swappable components, decoupled logic blocks</span
-                ></span
-              >
+                  >Composable systems with clear boundaries — plug-in sources, swappable AI models, isolated repos sharing one database</span
+                ></span>
               <span data-skill="architecture" class="tooltip"
                 >Pipeline Architecture<span class="tooltiptext"
-                  >Input → Enrich → Transform → Publish workflows</span
-                ></span
-              >
+                  >Multi-stage evaluation funnels with progressive filtering and cost-aware model routing</span
+                ></span>
               <span data-skill="architecture" class="tooltip"
-                >Context Load Balancing<span class="tooltiptext"
-                  >Routing inputs across parallel logic flows</span
-                ></span
-              >
+                >REST API Design<span class="tooltiptext"
+                  >Flask Blueprints with auth middleware, validation, structured error handling</span
+                ></span>
               <span data-skill="architecture" class="tooltip"
-                >Signal Filtering<span class="tooltiptext"
-                  >Scoring, deduplication, and gating logic to reduce noise in input streams</span
+                >Database Schema Design<span class="tooltiptext"
+                  >PostgreSQL with RPC functions, Row-Level Security, migration system</span
                 ></span>
               <span data-skill="architecture" class="tooltip"
                 >Runtime Resilience<span class="tooltiptext"
-                  >Handling disconnects, rate limits, and service fallbacks inside workflows</span
+                  >Circuit breakers, retry logic, concurrency control, health tracking, graceful degradation</span
                 ></span>
-
-              <!-- Automation -->
-              <span data-skill="automation" class="tooltip"
-                >n8n Orchestration<span class="tooltiptext"
-                  >Low-code automation with credentials, retries, and triggers</span
-                ></span
-              >
-              <span data-skill="automation" class="tooltip"
-                >Zapier Logic<span class="tooltiptext"
-                  >Cross-platform workflows for business ops</span
-                ></span
-              >
-              <span data-skill="automation" class="tooltip"
-                >Tampermonkey Scripting<span class="tooltiptext"
-                  >Custom browser automation using JavaScript</span
-                ></span
-              >
-              <span data-skill="automation" class="tooltip"
-                >Browser Extensions<span class="tooltiptext"
-                  >Chrome/Firefox tooling, localStorage, background scripts</span
-                ></span
-              >
-              <span data-skill="automation" class="tooltip"
-                >Trading Logic Automation<span class="tooltiptext"
-                  >Sniper bots, token filters, contract scanning, async order flows</span
-                ></span>
-              <span data-skill="automation" class="tooltip"
-                >AI-Augmented Workflows<span class="tooltiptext"
-                  >LLM-powered enrichment, rewriting, tagging, and classification within automations</span
-                ></span>
-
-              <!-- API & Integration -->
               <span data-skill="architecture" class="tooltip"
-                >API Integration<span class="tooltiptext"
-                  >REST, webhooks, OAuth flows, auth headers</span
-                ></span
-              >
-              <span data-skill="architecture" class="tooltip"
-                >Webhook Chaining<span class="tooltiptext"
-                  >Push/pull APIs with retries and fallback logic</span
-                ></span
-              >
-
-              <!-- E-Commerce -->
-              <span data-skill="ecommerce" class="tooltip"
-                >Shopify Automation<span class="tooltiptext"
-                  >Theme setup, product flows, metafields, SEO</span
-                ></span
-              >
-              <span data-skill="ecommerce" class="tooltip"
-                >Multichannel Sync<span class="tooltiptext"
-                  >Inventory, listing logic for Otto, Amazon, Kaufland</span
-                ></span
-              >
-              <span data-skill="ecommerce" class="tooltip"
-                >ERP Integration<span class="tooltiptext"
-                  >Inventory, Wareneingang, documentation flows</span
-                ></span
-              >
-              <span data-skill="ecommerce" class="tooltip"
-                >Product Enrichment<span class="tooltiptext"
-                  >AI-enhanced titles, tags, SEO descriptions</span
-                ></span
-              >
-              <span data-skill="ecommerce" class="tooltip"
-                >AI Listing Pipelines<span class="tooltiptext"
-                  >Title rewriting, HTML descriptions, EAN enrichment, image SEO automation</span
+                >Signal Filtering<span class="tooltiptext"
+                  >Multi-layer noise reduction: dedup, hash matching, relevance scoring</span
                 ></span>
 
-              <!-- AI -->
+              <!-- AI / LLM -->
               <span data-skill="ai" class="tooltip"
-                >GPT Prompt Chaining<span class="tooltiptext"
-                  >Multi-stage prompt design for enrichment and clustering</span
-                ></span
-              >
+                >Multi-Model Orchestration<span class="tooltiptext"
+                  >Cost-aware routing across Claude, Gemini, DeepSeek — different models for different tasks</span
+                ></span>
+              <span data-skill="ai" class="tooltip"
+                >AI Evaluation Pipelines<span class="tooltiptext"
+                  >Parallel batch scoring with progressive filtering — from thousands of candidates to ranked shortlists</span
+                ></span>
+              <span data-skill="ai" class="tooltip"
+                >LLM Content Generation<span class="tooltiptext"
+                  >Multi-step chains: analysis → generation → review, with structured JSON handoff and PII safety</span
+                ></span>
               <span data-skill="ai" class="tooltip"
                 >Prompt Engineering<span class="tooltiptext"
-                  >Few-shot, CoT, output shaping, summarization</span
-                ></span
-              >
+                  >Few-shot, Chain-of-Thought, JSON output shaping, injection hardening</span
+                ></span>
               <span data-skill="ai" class="tooltip"
-                >Reddit Trend Mining<span class="tooltiptext"
-                  >n8n + GPT workflows for trend + pain point detection</span
-                ></span
-              >
-              <span data-skill="ai" class="tooltip"
-                >Prompt Pack Systems<span class="tooltiptext"
-                  >Built reusable prompt libraries with ZIP exports, prompt chaining, and sorting logic</span
-                ></span>
-
-              <!-- DevOps -->
-              <span data-skill="devops" class="tooltip"
-                >DevOps-Lite<span class="tooltiptext"
-                  >Linux admin, CRON jobs, GitHub Actions, Docker</span
-                ></span
-              >
-              <span data-skill="devops" class="tooltip"
-                >Keepalive Systems<span class="tooltiptext"
-                  >Self-healing logic, ping/timeout recovery</span
-                ></span
-              >
-              <span data-skill="devops" class="tooltip"
-                >Resilience Engineering<span class="tooltiptext"
-                  >Reconnect logic, self-healing extensions, system uptime monitoring</span
-                ></span>
-
-              <!-- Project Ops -->
-              <span data-skill="pm" class="tooltip"
-                >Sprint Planning<span class="tooltiptext"
-                  >Agile workflows, Jira/GitHub, triage process</span
-                ></span
-              >
-              <span data-skill="pm" class="tooltip"
-                >Stakeholder Translation<span class="tooltiptext"
-                  >Converting CEO/vision to technical scope & tickets</span
-                ></span
-              >
-              <span data-skill="pm" class="tooltip"
-                >CRM & Support Systems<span class="tooltiptext"
-                  >1st/2nd line support, system setup, ticket loops</span
-                ></span
-              >
-              <span data-skill="pm" class="tooltip"
-                >Feature Mediation<span class="tooltiptext"
-                  >Coordinated technical feasibility and stakeholder expectations in iterative cycles</span
-                ></span>
-              <span data-skill="pm" class="tooltip"
-                >Cross-Department Ops<span class="tooltiptext"
-                  >Connected tech, support, and product teams with tools & automations that scale</span
-                ></span>
-
-              <!-- Data Handling -->
-              <span data-skill="data" class="tooltip"
-                >Data Pipelines<span class="tooltiptext"
-                  >ETL logic, CSV cleanup, image-to-product matching</span
-                ></span
-              >
-              <span data-skill="data" class="tooltip"
-                >Web Scraping<span class="tooltiptext"
-                  >DOM parsing, pagination, headers, proxies</span
-                ></span
-              >
-              <span data-skill="data" class="tooltip"
-                >CSV Workflows<span class="tooltiptext"
-                  >Mapping, cleaning, multi-field logic</span
-                ></span
-              >
-              <span data-skill="data" class="tooltip"
-                >Market Signal Extraction<span class="tooltiptext"
-                  >LLM + Reddit pipelines that extract pain points, categories, and trend momentum</span
+                >AI-Augmented Workflows<span class="tooltiptext"
+                  >LLM-powered trend mining, listing enrichment, narrative filtering, sentiment tracking</span
                 ></span>
 
               <!-- Frontend -->
               <span data-skill="frontend" class="tooltip"
-                >UI Resilience<span class="tooltiptext"
-                  >Auto-reconnect, state preservation, fallback UX</span
-                ></span
-              >
+                >Next.js / React<span class="tooltiptext"
+                  >App Router, server/client components, custom hooks, context, real-time polling</span
+                ></span>
               <span data-skill="frontend" class="tooltip"
-                >Landing Page Dev<span class="tooltiptext"
-                  >HTML/CSS/JS, animation, load-optimized structure</span
-                ></span
-              >
+                >TypeScript<span class="tooltiptext"
+                  >Strict types, shared interfaces, type-safe API client layer</span
+                ></span>
               <span data-skill="frontend" class="tooltip"
-                >Figma to Live<span class="tooltiptext"
-                  >UI mockups to custom frontends with minimal frameworks</span
-                ></span
-              >
+                >Tailwind CSS<span class="tooltiptext"
+                  >Custom themes, responsive design, dark mode, component-level styling</span
+                ></span>
               <span data-skill="frontend" class="tooltip"
-                >Dynamic Extension UI<span class="tooltiptext"
-                  >Indexed content navigation, DOM mutation tracking, and state-aware UI logic</span
+                >Real-Time UI<span class="tooltiptext"
+                  >Live status displays, polling, optimistic updates, loading states, error boundaries</span
+                ></span>
+              <span data-skill="frontend" class="tooltip"
+                >Browser Extensions<span class="tooltiptext"
+                  >Chrome extensions with session-aware state, DOM mutation, persistent storage</span
                 ></span>
 
-              <!-- Business/Side Project -->
-              <span data-skill="product" class="tooltip"
-                >Micro-SaaS<span class="tooltiptext"
-                  >Tool creation, positioning, monetization logic</span
-                ></span
-              >
+              <!-- Backend -->
+              <span data-skill="backend" class="tooltip"
+                >Flask / Python<span class="tooltiptext"
+                  >App factory, Blueprints, APScheduler, background workers, JWT auth</span
+                ></span>
+              <span data-skill="backend" class="tooltip"
+                >Supabase PostgreSQL<span class="tooltiptext"
+                  >RPC functions, RLS policies, JWKS verification, admin vs anon clients</span
+                ></span>
+              <span data-skill="backend" class="tooltip"
+                >Auth & Security<span class="tooltiptext"
+                  >JWT/JWKS verification, OAuth (Google/LinkedIn), PKCE flow, session refresh</span
+                ></span>
+              <span data-skill="backend" class="tooltip"
+                >Background Workers<span class="tooltiptext"
+                  >Scheduled jobs: data fetching, evaluation, auto-apply, daily catch-up</span
+                ></span>
+              <span data-skill="backend" class="tooltip"
+                >API Integration<span class="tooltiptext"
+                  >REST APIs, OAuth flows, webhooks, rate-limited clients</span
+                ></span>
+
+              <!-- Data -->
+              <span data-skill="data" class="tooltip"
+                >Data Aggregation<span class="tooltiptext"
+                  >Multi-source ETL: APIs, ATS drains, RSS feeds, HTML scrapers — normalised into one schema</span
+                ></span>
+              <span data-skill="data" class="tooltip"
+                >Deduplication<span class="tooltiptext"
+                  >Multi-layer: external ID, strict hash, fuzzy hash with description fingerprinting</span
+                ></span>
+              <span data-skill="data" class="tooltip"
+                >Web Scraping<span class="tooltiptext"
+                  >Playwright stealth, proxy rotation, rate limiting, structured extraction</span
+                ></span>
+              <span data-skill="data" class="tooltip"
+                >Data Wrangling<span class="tooltiptext"
+                  >CSV workflows, Google Sheets automation, regex parsing, market signal extraction</span
+                ></span>
+
+              <!-- Automation -->
+              <span data-skill="automation" class="tooltip"
+                >Browser Automation<span class="tooltiptext"
+                  >Playwright stealth, ATS form detection, Tampermonkey scripting, anti-detection</span
+                ></span>
+              <span data-skill="automation" class="tooltip"
+                >n8n / Zapier<span class="tooltiptext"
+                  >Multi-step workflows with credentials, retries, triggers, GPT-enhanced pipelines</span
+                ></span>
+              <span data-skill="automation" class="tooltip"
+                >Trading Logic<span class="tooltiptext"
+                  >Multi-API trade automation, LLM-based narrative filtering, sentiment tracking</span
+                ></span>
+
+              <!-- E-Commerce -->
+              <span data-skill="ecommerce" class="tooltip"
+                >Shopify & Multichannel<span class="tooltiptext"
+                  >Store setup, Otto/Kaufland/Amazon/eBay feeds, unified pricing and inventory</span
+                ></span>
+              <span data-skill="ecommerce" class="tooltip"
+                >Product & SEO Automation<span class="tooltiptext"
+                  >Listing enrichment, AI-powered descriptions, feed pipelines, ERP integration</span
+                ></span>
+
+              <!-- DevOps -->
+              <span data-skill="devops" class="tooltip"
+                >Docker & CRON<span class="tooltiptext"
+                  >Containerized services, scheduled aggregation, health monitoring, keepalive scripts</span
+                ></span>
+              <span data-skill="devops" class="tooltip"
+                >Resilience Engineering<span class="tooltiptext"
+                  >Rate limiting, circuit breakers, exponential backoff, health dashboards</span
+                ></span>
+              <span data-skill="devops" class="tooltip"
+                >GitHub Workflows<span class="tooltiptext"
+                  >Multi-repo management, branch-per-sprint workflow, CI scripts</span
+                ></span>
+
+              <!-- Product / PM -->
+              <span data-skill="pm" class="tooltip"
+                >Solo Product Development<span class="tooltiptext"
+                  >Roadmap, sprint planning, iterative delivery — all self-managed across 4 phases</span
+                ></span>
+              <span data-skill="pm" class="tooltip"
+                >Stakeholder Translation<span class="tooltiptext"
+                  >Converting vision to technical scope, feature mediation, cross-department coordination</span
+                ></span>
+              <span data-skill="pm" class="tooltip"
+                >Client Operations<span class="tooltiptext"
+                  >Onboarding flows, KYC workflows, CRM systems, support tooling</span
+                ></span>
+              <span data-skill="pm" class="tooltip"
+                >GDPR / DSGVO Compliance<span class="tooltiptext"
+                  >Data export, account deletion, PII stripping, cookie consent, legal pages</span
+                ></span>
             </div>
           </div>
         </div>
@@ -1853,13 +2075,9 @@
 <section id="ctaSection" class="cta parallax-section animate delay-4">
   <div class="container">
     <div class="card">
-      <h2>Lets build something that delivers!</h2>
-      <p>Need a PM, operator, custom systems/automation, or someone who connects tech with business needs?</p>
-      <p style="margin-top: 16px;">
-        I'm looking to join a cross-functional team where I can either manage or build, automate/improve real systems. <br> A place where i can continue to grow, learn from others, and push beyond my current edge.
-      </p>
-      <p class="text-muted" style="margin-top: 8px;">
-        Lets have a chat
+      <h2>Let's talk.</h2>
+      <p>
+        I'm open to roles where I can contribute across the stack, build real products, and work in a structured team environment.
       </p>
       <div class="cta-container">
         <div class="cta-glow"></div>
@@ -1959,6 +2177,29 @@
               sections.forEach(sec => animateObserver.observe(sec));
 
               if(heroBackground) heroBackground.style.opacity = '0.4';
+
+              // Collapsing header on scroll
+              let isCollapsed = false;
+              wrapper.addEventListener('scroll', function() {
+                const shouldCollapse = wrapper.scrollTop > 50;
+                if (shouldCollapse === isCollapsed) return;
+                isCollapsed = shouldCollapse;
+                if (shouldCollapse) {
+                  header.classList.add('collapsed');
+                } else {
+                  header.classList.remove('collapsed');
+                }
+                // Recalculate layout after transition
+                setTimeout(() => {
+                  const newHeight = header.getBoundingClientRect().height;
+                  document.documentElement.style.setProperty('--header-height', newHeight + 'px');
+                  wrapper.style.top = newHeight + 'px';
+                  wrapper.style.height = `calc(100vh - ${newHeight}px)`;
+                  sections.forEach(sec => {
+                    sec.style.height = `calc(100vh - ${newHeight}px)`;
+                  });
+                }, 360);
+              });
             } else {
               wrapper.style.position = 'relative';
               wrapper.style.top = '0';
@@ -2355,6 +2596,31 @@
       const nextIndex = (current + 1) % slides.length;
       animateSlide(nextIndex, 'right');
     });
+
+    // Touch swipe support
+    const slider = document.querySelector(".project-slider");
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slider.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    slider.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) { // minimum swipe distance
+        if (diff > 0) {
+          // Swiped left → next slide
+          const nextIndex = (current + 1) % slides.length;
+          animateSlide(nextIndex, 'right');
+        } else {
+          // Swiped right → prev slide
+          const nextIndex = (current - 1 + slides.length) % slides.length;
+          animateSlide(nextIndex, 'left');
+        }
+      }
+    }, { passive: true });
     });
 
     // After the slider JS
@@ -2382,6 +2648,56 @@
     }
     window.addEventListener("DOMContentLoaded", setSliderToTallestSlide);
     window.addEventListener("resize", setSliderToTallestSlide);
+
+    // ========= 3D CARD TILT + GRADIENT BORDER + SPOTLIGHT =========
+    (function() {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) return; // Skip on mobile
+
+      const cards = document.querySelectorAll('#cardWrapper .card');
+
+      cards.forEach(card => {
+        // Wrap card in tilt wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'card-tilt-wrapper';
+        card.parentNode.insertBefore(wrapper, card);
+        wrapper.appendChild(card);
+
+        // Inject gradient border element
+        const border = document.createElement('div');
+        border.className = 'gradient-border';
+        wrapper.insertBefore(border, card);
+
+        // Tilt on mousemove — freeze when over interactive elements
+        card.addEventListener('mousemove', (e) => {
+          // Don't update tilt when hovering tooltips/tags/buttons — keeps card stable so :hover works
+          if (e.target.closest('.tooltip') || e.target.closest('.skill-tags span') || e.target.closest('.filter-btn') || e.target.closest('.project-nav')) return;
+
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const tiltX = ((y - centerY) / centerY) * -3;
+          const tiltY = ((x - centerX) / centerX) * 3;
+
+          card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.01)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+          setTimeout(() => {
+            card.style.transition = '';
+          }, 500);
+        });
+
+        card.addEventListener('mouseenter', () => {
+          card.style.transition = 'box-shadow 0.3s ease';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
