@@ -656,6 +656,7 @@
         overflow: hidden;
         width: 100%;
         min-height: 200px;
+        touch-action: pan-y pinch-zoom;
         }
 
         .project-slide {
@@ -2654,7 +2655,21 @@
 
     slider.addEventListener("touchstart", (e) => {
       touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      swiping = false;
     }, { passive: true });
+
+    // Prevent horizontal page scroll while swiping the slider
+    let touchStartY = 0;
+    let swiping = false;
+    slider.addEventListener("touchmove", (e) => {
+      const dx = Math.abs(e.changedTouches[0].screenX - touchStartX);
+      const dy = Math.abs(e.changedTouches[0].screenY - touchStartY);
+      if (dx > dy && dx > 10) {
+        swiping = true;
+        e.preventDefault();
+      }
+    }, { passive: false });
 
     slider.addEventListener("touchend", (e) => {
       touchEndX = e.changedTouches[0].screenX;
