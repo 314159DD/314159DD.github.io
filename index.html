@@ -1285,18 +1285,60 @@
         z-index: 1;
       }
 
-      /* ── Experience card: fluid vh-based scaling ── */
+      /* ── All cards: fluid vh-based scaling ── */
+      #cardWrapper .card {
+        padding: clamp(12px, 3.5vh, 48px) clamp(16px, 3vw, 48px);
+      }
+      #cardWrapper .card h2 {
+        font-size: clamp(1rem, 2.4vh, 1.75rem);
+        margin-bottom: clamp(4px, 1vh, 16px);
+      }
+      #cardWrapper .card h3 {
+        font-size: clamp(0.8rem, 1.7vh, 1.25rem);
+        margin-bottom: clamp(2px, 0.6vh, 8px);
+      }
+      #cardWrapper .card p,
+      #cardWrapper .card li {
+        font-size: clamp(0.6rem, 1.3vh, 1rem);
+        line-height: 1.4;
+      }
+      #cardWrapper .card .text-muted {
+        font-size: clamp(0.6rem, 1.3vh, 1rem);
+      }
+      #cardWrapper .card .badge {
+        font-size: clamp(0.55rem, 1vh, 0.8rem);
+        padding: clamp(1px, 0.4vh, 4px) clamp(4px, 0.7vh, 8px);
+        margin-right: clamp(2px, 0.5vh, 6px);
+        margin-bottom: clamp(2px, 0.5vh, 6px);
+      }
+      #cardWrapper .card-grid {
+        gap: clamp(8px, 1.5vh, 24px);
+        margin-top: clamp(8px, 1.5vh, 24px);
+        grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 25vw, 300px), 1fr));
+      }
+      #cardWrapper .skill-tags {
+        margin: clamp(8px, 1.2vh, 24px) 0;
+      }
+      #cardWrapper .skill-tags span {
+        font-size: clamp(0.55rem, 1vh, 0.9rem);
+        padding: clamp(2px, 0.5vh, 8px) clamp(6px, 0.8vh, 14px);
+      }
+
+      /* ── About card: collapse br spacers on short viewports ── */
+      #aboutSection .card > br {
+        display: block;
+        content: '';
+        margin-top: clamp(0px, 0.5vh, 16px);
+      }
+      #aboutSection .card > div[style] {
+        margin-top: clamp(8px, 1.5vh, 30px) !important;
+      }
+
+      /* ── Experience card: wider + timeline fluid ── */
       #experienceSection .container,
       #experienceSection .card,
       #experienceSection .card-tilt-wrapper {
         max-width: 1100px;
-      }
-      #experienceSection .card {
-        padding: clamp(12px, 3vh, 48px) clamp(20px, 3vw, 48px);
-      }
-      #experienceSection .card h2 {
-        font-size: clamp(1rem, 2.4vh, 1.75rem);
-        margin-bottom: clamp(4px, 1vh, 16px);
       }
       #experienceSection .timeline {
         margin: clamp(2px, 0.8vh, 24px) 0;
@@ -1327,7 +1369,6 @@
         font-size: clamp(0.6rem, 1.2vh, 0.92rem);
         line-height: 1.35;
       }
-
     }
 
     @media (max-width: 480px) {
