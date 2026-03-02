@@ -105,13 +105,13 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
       margin-bottom: 16px;
       transition: font-size 0.35s ease, margin 0.35s ease;
     }
 
     .subtitle {
-      font-size: 1.05rem;
+      font-size: clamp(0.8rem, 2vw, 1.05rem);
       opacity: 0.9;
       margin-bottom: 24px;
       max-width: 700px;
@@ -1284,62 +1284,83 @@
         position: relative;
         z-index: 1;
       }
-    }
 
-    /* Compact layout for 1080p and shorter desktop screens */
-    @media (min-width: 769px) and (max-height: 1000px) {
-      .card {
-        padding: 24px 32px;
-      }
-      .card h2 {
-        font-size: 1.3rem;
-        margin-bottom: 8px;
-      }
-      .card p, .card li {
-        font-size: 0.85rem;
-        line-height: 1.4;
-      }
-      .timeline {
-        margin: 8px 0;
-        padding-left: 20px;
-      }
-      .timeline-item {
-        margin-bottom: 8px;
-        padding-left: 20px;
-      }
-      .timeline-item::before {
-        width: 10px;
-        height: 10px;
-        border-width: 2px;
-        top: 4px;
-      }
-      .timeline-date {
-        font-size: 0.75rem;
-        margin-bottom: 2px;
-      }
-      .timeline-title {
-        font-size: 0.9rem;
-        margin-bottom: 2px;
-      }
-      .timeline-item p {
-        font-size: 0.8rem;
-        line-height: 1.35;
-      }
+      /* ── Experience card: fluid vh-based scaling ── */
       #experienceSection .container,
       #experienceSection .card,
       #experienceSection .card-tilt-wrapper {
         max-width: 1100px;
       }
-      .card-grid {
-        gap: 16px;
+      #experienceSection .card {
+        padding: clamp(12px, 3vh, 48px) clamp(20px, 3vw, 48px);
       }
-      .card-grid h3 {
-        font-size: 1rem;
-        margin-bottom: 6px;
+      #experienceSection .card h2 {
+        font-size: clamp(1rem, 2.4vh, 1.75rem);
+        margin-bottom: clamp(4px, 1vh, 16px);
       }
-      .skill-tags span {
-        font-size: 0.78rem;
-        padding: 4px 10px;
+      #experienceSection .timeline {
+        margin: clamp(2px, 0.8vh, 24px) 0;
+        padding-left: clamp(14px, 2.5vh, 30px);
+      }
+      #experienceSection .timeline::before {
+        left: clamp(3px, 0.7vh, 7px);
+      }
+      #experienceSection .timeline-item {
+        margin-bottom: clamp(2px, 1.8vh, 30px);
+        padding-left: clamp(14px, 2.5vh, 30px);
+      }
+      #experienceSection .timeline-item::before {
+        width: clamp(8px, 1.4vh, 16px);
+        height: clamp(8px, 1.4vh, 16px);
+        border-width: clamp(2px, 0.3vh, 3px);
+        top: clamp(2px, 0.5vh, 5px);
+      }
+      #experienceSection .timeline-date {
+        font-size: clamp(0.6rem, 1.1vh, 0.9rem);
+        margin-bottom: clamp(0px, 0.3vh, 8px);
+      }
+      #experienceSection .timeline-title {
+        font-size: clamp(0.7rem, 1.4vh, 1.05rem);
+        margin-bottom: clamp(0px, 0.4vh, 8px);
+      }
+      #experienceSection .timeline-item p {
+        font-size: clamp(0.6rem, 1.2vh, 0.92rem);
+        line-height: 1.35;
+      }
+
+      /* ── Education card: same fluid treatment ── */
+      #educationSection .card {
+        padding: clamp(12px, 3vh, 48px) clamp(20px, 3vw, 48px);
+      }
+      #educationSection .card h2 {
+        font-size: clamp(1rem, 2.4vh, 1.75rem);
+        margin-bottom: clamp(4px, 1vh, 16px);
+      }
+      #educationSection .timeline {
+        margin: clamp(2px, 1vh, 24px) 0;
+        padding-left: clamp(14px, 2.5vh, 30px);
+      }
+      #educationSection .timeline-item {
+        margin-bottom: clamp(4px, 2vh, 30px);
+        padding-left: clamp(14px, 2.5vh, 30px);
+      }
+      #educationSection .timeline-item::before {
+        width: clamp(8px, 1.4vh, 16px);
+        height: clamp(8px, 1.4vh, 16px);
+        border-width: clamp(2px, 0.3vh, 3px);
+        top: clamp(2px, 0.5vh, 5px);
+      }
+      #educationSection .timeline-date {
+        font-size: clamp(0.6rem, 1.1vh, 0.9rem);
+        margin-bottom: clamp(0px, 0.4vh, 8px);
+      }
+      #educationSection .timeline-title {
+        font-size: clamp(0.7rem, 1.4vh, 1.05rem);
+        margin-bottom: clamp(0px, 0.4vh, 8px);
+      }
+      #educationSection .timeline-item p {
+        font-size: clamp(0.6rem, 1.2vh, 0.92rem);
+        line-height: 1.35;
       }
     }
 
@@ -1850,7 +1871,7 @@
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-date">Jan 2022 – Dec 2024</div>
+                <div class="timeline-date">Oct 2021 – Dec 2024</div>
                 <h3 class="timeline-title">Technical Project Manager – Better Payment GmbH</h3>
                 <p>
                   Led developer coordination, feature scoping, and cross-team delivery for a FinTech SaaS platform.<br>
@@ -1859,34 +1880,10 @@
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-date">Oct 2021 – Dec 2021</div>
-                <h3 class="timeline-title">Onboarding Manager – Better Payment GmbH</h3>
-                <p>
-                  Onboarded new merchant clients onto the payment platform. Managed KYC workflows, technical integration support, and client readiness. Promoted to Technical Project Manager within 3 months.
-                </p>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-date">2019 – 2021</div>
-                <h3 class="timeline-title">Logistics & Ops Coordinator – Meguin GmbH & Co. KG Mineraloelwerke</h3>
-                <p>
-                  Managed shift operations and warehouse intake (Wareneingang), resolving cross-department issues in real time and ensuring operational flow.
-                </p>
-              </div>
-
-              <div class="timeline-item">
                 <div class="timeline-date">2017 – 2019</div>
                 <h3 class="timeline-title">E-Commerce Manager – Getränke Stöhr GmbH</h3>
                 <p>
                   Ran Amazon, eBay, and custom shop operations. Managed product listings, supplier workflows, returns, and pricing across platforms.
-                </p>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-date">2013 – 2016</div>
-                <h3 class="timeline-title">Ausbildung – DeltaTec GmbH</h3>
-                <p>
-                  Completed apprenticeship as Groß- und Außenhandelskaufmann. Took on early responsibility for ecommerce listings and customer comms.
                 </p>
               </div>
             </div>
