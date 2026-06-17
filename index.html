@@ -8,24 +8,24 @@
   />
   <link rel="shortcut icon" href="favicon.png" type="image/png">
   <!-- Primary Meta Tags -->
-  <title>Steven Obst | Technical Product Builder — SaaS, AI, DeFi</title>
-  <meta name="title" content="Steven Obst | Technical Product Builder — SaaS, AI, DeFi">
-  <meta name="description" content="I design and ship production systems end-to-end, using AI as a force multiplier. SaaS, DeFi, data engineering. Rust, Python, TypeScript.">
-  <link rel="canonical" href="https://obststeven.info/"> <!-- Updated with your actual domain -->
+  <title>Steven Obst | Full-Stack Engineer · AI Systems & Integration</title>
+  <meta name="title" content="Steven Obst | Full-Stack Engineer · AI Systems & Integration">
+  <meta name="description" content="Berlin-based full-stack engineer. AI-augmented production delivery, system & API integration, and n8n workflow automation. Python/FastAPI, TypeScript, Next.js.">
+  <link rel="canonical" href="https://obststeven.info/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://obststeven.info/"> <!-- Updated with your actual domain -->
-  <meta property="og:title" content="Steven Obst | Technical Product Builder — SaaS, AI, DeFi">
-  <meta property="og:description" content="I design and ship production systems end-to-end, using AI as a force multiplier. SaaS, DeFi, data engineering.">
-  <meta property="og:image" content="https://obststeven.info/preview.jpg"> <!-- Update with your OpenGraph image if needed -->
+  <meta property="og:url" content="https://obststeven.info/">
+  <meta property="og:title" content="Steven Obst | Full-Stack Engineer · AI Systems & Integration">
+  <meta property="og:description" content="Berlin-based full-stack engineer. AI-augmented production delivery, system & API integration, and n8n workflow automation.">
+  <meta property="og:image" content="https://obststeven.info/preview.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://obststeven.info/"> <!-- Updated with your actual domain -->
-  <meta property="twitter:title" content="Steven Obst | Technical Product Builder — SaaS, AI, DeFi">
-  <meta property="twitter:description" content="I design and ship production systems end-to-end, using AI as a force multiplier. SaaS, DeFi, data engineering.">
-  <meta property="twitter:image" content="https://obststeven.info/preview.jpg"> <!-- Update with your OpenGraph image if needed -->
+  <meta property="twitter:url" content="https://obststeven.info/">
+  <meta property="twitter:title" content="Steven Obst | Full-Stack Engineer · AI Systems & Integration">
+  <meta property="twitter:description" content="Berlin-based full-stack engineer building production systems: integration, AI/LLM pipelines, and full-stack delivery.">
+  <meta property="twitter:image" content="https://obststeven.info/preview.jpg">
 
   <style>
     /* ===========================
@@ -411,7 +411,7 @@
       /* No margin-bottom on desktop! */
     }
 
-    /* Left accent bar removed — gradient border handles card edge styling */
+    /* Left accent bar removed - gradient border handles card edge styling */
 
     .card::after {
       content: '';
@@ -1111,6 +1111,7 @@
         font-size: 1rem;
         margin-bottom: 16px;
         padding: 0 16px;
+        white-space: normal;
       }
 
       #cardWrapper {
@@ -1133,7 +1134,7 @@
         will-change: auto !important;
       }
 
-      /* Disable staggered reveals on mobile — all content visible */
+      /* Disable staggered reveals on mobile - all content visible */
       #cardWrapper section .card > * {
         opacity: 1 !important;
         transform: none !important;
@@ -1392,7 +1393,7 @@
       transition: opacity 0.5s;
     }
 
-    /* .card.no-gradient — no longer needed, left bar removed */
+    /* .card.no-gradient - no longer needed, left bar removed */
 
 
     /* ===========================
@@ -1488,14 +1489,55 @@
     #cardWrapper section.active .card > *:nth-child(14) { transition-delay: 1.4s; }
     #cardWrapper section.active .card > *:nth-child(15) { transition-delay: 1.5s; }
 
-    /* br elements should not participate in stagger — they eat child slots */
+    /* br elements should not participate in stagger - they eat child slots */
     #cardWrapper section .card > br {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
     }
 
-    /* Spotlight removed — tilt + gradient border is enough interactivity */
+    /* Spotlight removed - tilt + gradient border is enough interactivity */
+
+    /* ===========================
+       ARCHITECTURE DIAGRAM (additive)
+       =========================== */
+    .arch-diagram {
+      width: 92%;
+      max-width: 460px;
+      margin: 0 auto 18px auto;
+      display: block;
+    }
+    .arch-box {
+      fill: var(--card-bg);
+      stroke: var(--primary);
+      stroke-width: 1.5;
+    }
+    .arch-box-accent {
+      fill: var(--card-bg);
+      stroke: var(--secondary);
+      stroke-width: 1.5;
+    }
+    .arch-label {
+      fill: var(--text);
+      font-family: var(--code-font);
+      font-size: 11px;
+    }
+    .arch-sub {
+      fill: var(--text-light);
+      font-family: var(--code-font);
+      font-size: 8.5px;
+    }
+    .arch-line {
+      stroke: var(--secondary);
+      stroke-width: 1.5;
+      opacity: 0.7;
+    }
+    .arch-caption {
+      fill: var(--text-light);
+      font-family: var(--code-font);
+      font-size: 9px;
+      letter-spacing: 0.04em;
+    }
   </style>
 
   <link
@@ -1523,10 +1565,10 @@
         </svg>
       </div>
       <h1><span class="text-gradient">Steven Obst</span></h1>
-      <p class="subtitle">AI Solutions Architect | Full-Stack Systems | Automation | SaaS</p>
+      <p class="subtitle">Full-Stack Engineer · AI Systems &amp; Integration · API &amp; Workflow Automation</p>
       <div class="contact-links">
         <a href="mailto:arbeit.obst.steven@proton.me"><i class="fas fa-envelope"></i> Email</a>
-        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Portfolio</a>
+        <a href="/gateway"><i class="fas fa-globe"></i> Portfolio</a>
         <a href="https://github.com/314159DD" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/steven-obst-158a39148" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
@@ -1562,42 +1604,36 @@
   <div class="container">
     <div class="card">
       <h2>About</h2>
-      <p class="text-muted" style="font-size: 1.1em; margin-bottom: 28px;">
-        I design and ship production systems end-to-end, using AI as a force multiplier.
-      </p>
-
-      <p style="margin-bottom: 24px;">
-        My background is ecommerce and fintech project management. Years of sitting between developers and stakeholders taught me to scope systems, write specs that survive implementation, and spot problems before they reach production.
-      </p>
-
-      <p style="margin-bottom: 24px;">
-        I handle system architecture, technical direction, and validation. AI handles implementation speed. Fast iteration without cutting corners on reliability. That's the tradeoff I've figured out how to make work.
-      </p>
-
-      <p style="margin-bottom: 24px;">
-        What I care about is what AI can do for businesses beyond chatbots. Intelligent pipelines that replace manual workflows. Decision support that actually changes how a company operates day to day. I spend most of my time figuring out where those opportunities are and then building them.
-      </p>
-
-      <p style="margin-bottom: 24px;">
-        Multiple production systems live and counting. SaaS with Stripe billing, a DeFi solver in Rust competing in live blockchain auctions, a 29-source data aggregator, trading bots, a Solidity security scanner. All live, all solo.
-      </p>
-
       <p class="text-muted">
-        Based in Berlin. German and English.
+        Most technical problems aren't purely technical, and most business problems aren't purely business. I work in the overlap.
+      </p>
+      <br>
+      <p>
+        I started in ecommerce and FinTech, coordinating developers and turning stakeholder requirements into something a delivery team could actually ship.<br>Over time I stopped coordinating the systems and started building them myself.
+      </p>
+      <p>
+        Now I design and ship production systems solo. I own the architecture, drive the AI agents that write a lot of the code, and check their output hard, because that is usually where it breaks.<br><br>What I care about is software that survives a regulated, real-world environment instead of falling over the first time someone uses it for real.
+      </p>
+      <p>
+        I know how software gets scoped, delivered, and kept alive inside a team. I also know how it works down at the code and system level.
+      </p>
+      <p>
+        I'm at my best where systems have to talk to each other cleanly, and where a brittle manual process needs to become automation you can trust.
+      </p>
+      <br>
+      <p class="text-muted">
+        Based in Berlin, working in German and English. Security-aware, and comfortable on both sides of the business and technical line.
       </p>
       <div style="margin-top: 30px">
-        <span class="badge">AI Solutions Architect</span>
-        <span class="badge">Full-Stack Systems</span>
-        <span class="badge">Automation</span>
-        <span class="badge">n8n</span>
-        <span class="badge">SaaS Systems</span>
+        <span class="badge">Full-Stack Engineer</span>
+        <span class="badge">AI Systems</span>
+        <span class="badge">System &amp; API Integration</span>
+        <span class="badge">n8n / Workflow Automation</span>
         <span class="badge">Next.js</span>
-        <span class="badge">Python</span>
-        <span class="badge">Rust</span>
-        <span class="badge">Supabase</span>
-        <span class="badge">Docker</span>
-        <span class="badge">Stripe</span>
-        <span class="badge">DeFi</span>
+        <span class="badge">Python / FastAPI</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">LLM Orchestration</span>
+        <span class="badge">BRAO / GDPR</span>
         <span class="badge">Berlin</span>
         <span class="badge">German / English</span>
       </div>
@@ -1613,12 +1649,37 @@
       <h2>Technical Skills</h2>
       <div class="card-grid">
         <div>
+          <h3><i class="fas fa-diagram-project" style="margin-right: 10px"></i>Integration &amp; Pipelines</h3>
+          <p>
+            <span class="tooltip">n8n Orchestration<span class="tooltiptext">
+              Self-hosted n8n, bidirectional sync between systems, scheduled and event-driven workflows</span></span>,
+            <span class="tooltip">REST &amp; Webhooks<span class="tooltiptext">
+              API integration, OAuth flows, webhook architectures, rate-limited clients</span></span>,
+            <span class="tooltip">Data Ingestion<span class="tooltiptext">
+              Multi-source pipelines, deduplication, circuit breakers, normalisation into one schema</span></span>
+          </p>
+        </div>
+
+        <div>
+          <h3><i class="fas fa-robot" style="margin-right: 10px"></i>AI / LLM Engineering</h3>
+          <p>
+            <span class="tooltip">Multi-Model Orchestration<span class="tooltiptext">
+              Anthropic, OpenRouter: routing by cost and capability per task</span></span>,
+            <span class="tooltip">Evaluation Pipelines<span class="tooltiptext">
+              Multi-tier funnels: SQL filter, overlap scoring, batch LLM scoring, re-ranking</span></span>,
+            <span class="tooltip">Content Generation<span class="tooltiptext">
+              Multi-step chains with structured JSON handoff and PII safety</span></span>,
+            Prompt Engineering, JSON Schema Enforcement, RAG
+          </p>
+        </div>
+
+        <div>
           <h3><i class="fas fa-code" style="margin-right: 10px"></i>Core Stack</h3>
           <p>
-            Python, JavaScript, TypeScript, Bash
+            Python, TypeScript, Rust, Bash
           </p>
           <p>
-            Windows, Linux, macOS, Docker, VMs, Git
+            Linux, macOS, Windows, Docker, Git
           </p>
         </div>
 
@@ -1632,84 +1693,34 @@
             <span class="tooltip">TypeScript<span class="tooltiptext">
               Strict typing, shared interfaces, type-safe API layer</span></span>,
             <span class="tooltip">Tailwind CSS v4<span class="tooltiptext">
-              Utility-first, custom themes, responsive design, dark mode</span></span>,
-            Framer Motion, HTML/CSS
+              Utility-first, custom themes, responsive design, dark mode</span></span>
           </p>
         </div>
 
         <div>
           <h3><i class="fas fa-server" style="margin-right: 10px"></i>Backend</h3>
           <p>
-            <span class="tooltip">Python / Flask<span class="tooltiptext">
-              App factory, Blueprints, background workers, APScheduler, JWT auth</span></span>,
-            <span class="tooltip">FastAPI<span class="tooltiptext">
-              Async endpoints, Pydantic validation, used in security and tax tooling</span></span>,
-            <span class="tooltip">Rust / Axum<span class="tooltiptext">
-              Async HTTP server, Tokio runtime, used in DeFi solver</span></span>,
+            <span class="tooltip">Python / FastAPI / Flask<span class="tooltiptext">
+              App factory, Blueprints, background workers, schedulers, JWT auth</span></span>,
             <span class="tooltip">Supabase PostgreSQL<span class="tooltiptext">
               RPC functions, Row-Level Security, migrations, real-time subscriptions</span></span>,
-            <span class="tooltip">Stripe Integration<span class="tooltiptext">
-              Subscription billing, webhooks, credit-based usage accounting</span></span>
+            <span class="tooltip">REST API Design<span class="tooltiptext">
+              Auth middleware, validation, structured error handling, versioning</span></span>,
+            <span class="tooltip">Auth &amp; Security<span class="tooltiptext">
+              JWT/JWKS verification, OAuth (Google/LinkedIn), PKCE flow, RLS policies</span></span>
           </p>
         </div>
 
         <div>
-          <h3><i class="fas fa-robot" style="margin-right: 10px"></i>AI / LLM Engineering</h3>
-          <p>
-            <span class="tooltip">Multi-Model Orchestration<span class="tooltiptext">
-              Claude, Gemini, DeepSeek: routing by cost/capability per task</span></span>,
-            <span class="tooltip">Evaluation Pipelines<span class="tooltiptext">
-              5-tier funnel: SQL filter, Jaccard overlap, batch scoring, re-ranking</span></span>,
-            <span class="tooltip">Content Generation<span class="tooltiptext">
-              3-call cover letter pipeline: Analyst, Writer, Proofreader with PII safety</span></span>,
-            Prompt Engineering, JSON Schema Validation
-          </p>
-        </div>
-
-        <div>
-          <h3><i class="fas fa-shopping-cart" style="margin-right: 10px"></i>E-Commerce</h3>
-          <p>
-            <span class="tooltip">Shopify<span class="tooltiptext">
-              Store setup, theme customization, product management, integrations</span></span>,
-            WooCommerce, eBay, Amazon, Otto, Kaufland
-          </p>
-          <p>
-            Multichannel Feeds, Product Management, SEO Automation
-          </p>
-        </div>
-
-        <div>
-          <h3><i class="fas fa-database" style="margin-right: 10px"></i>Data & Infrastructure</h3>
+          <h3><i class="fas fa-database" style="margin-right: 10px"></i>Data &amp; Infrastructure</h3>
           <p>
             <span class="tooltip">Data Aggregation<span class="tooltiptext">
-              Multiple source types (APIs, ATS feeds, scrapers), 3-layer deduplication, circuit breakers</span></span>,
-            <span class="tooltip">Supabase Auth<span class="tooltiptext">
-              JWKS verification, OAuth (Google/LinkedIn), PKCE flow, RLS policies</span></span>,
-            Docker, CRON, GitHub, Linux
+              29 source parsers, ATS drains, RSS, scrapers, three-layer deduplication, circuit breakers</span></span>,
+            <span class="tooltip">Resilience<span class="tooltiptext">
+              Retry logic, rate limiting, health tracking, graceful degradation</span></span>
           </p>
           <p>
-            <span class="tooltip">Automation<span class="tooltiptext">
-              n8n, Zapier, REST APIs, webhook orchestration</span></span>,
-            n8n, Zapier, Webhook Pipelines
-          </p>
-        </div>
-
-        <div>
-          <h3><i class="fas fa-link" style="margin-right: 10px"></i>DeFi / Blockchain</h3>
-          <p>
-            <span class="tooltip">DEX Integration<span class="tooltiptext">
-              Uniswap V2/V3, Curve, Balancer, Camelot, Trader Joe — pool math and calldata encoding</span></span>,
-            <span class="tooltip">CoW Protocol<span class="tooltiptext">
-              Batch auction solver, GPv2Settlement encoding, UDCP/EBBO compliance</span></span>,
-            <span class="tooltip">Smart Contract Security<span class="tooltiptext">
-              Slither static analysis + AI review, 10 vulnerability classes, multi-chain Etherscan</span></span>
-          </p>
-          <p>
-            <span class="tooltip">Polymarket<span class="tooltiptext">
-              EIP-712 signing, CLOB SDK, prediction market probability estimation</span></span>,
-            <span class="tooltip">On-Chain Data<span class="tooltiptext">
-              WebSocket event feeds, The Graph subgraphs, pool indexing, multicall batching</span></span>,
-            Ethereum, Arbitrum, Solana
+            Docker, CRON, GitHub Actions, Stripe billing
           </p>
         </div>
       </div>
@@ -1727,265 +1738,129 @@
         <div class="project-slider-wrapper">
         <div class="project-slider">
   
-          <!-- Slide 1 — SwiftJob / JobFlowAI -->
+          <!-- Slide 1 - Legal-Tech Production System (flagship) -->
           <div class="project-slide active">
-            <img class="project-image" src="assets/images/Dashboard.png" alt="SwiftJob Dashboard" />
+            <svg class="arch-diagram" viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture: external case-management system synced via n8n anonymisation gateway with self-hosted Supabase and dashboard">
+              <!-- External system -->
+              <rect class="arch-box" x="6" y="40" width="120" height="48" rx="8"/>
+              <text class="arch-label" x="66" y="60" text-anchor="middle">External System</text>
+              <text class="arch-sub" x="66" y="74" text-anchor="middle">case mgmt + accounting</text>
+              <!-- n8n gateway -->
+              <rect class="arch-box-accent" x="170" y="34" width="120" height="60" rx="8"/>
+              <text class="arch-label" x="230" y="56" text-anchor="middle">n8n Gateway</text>
+              <text class="arch-sub" x="230" y="70" text-anchor="middle">sync + anonymisation</text>
+              <text class="arch-sub" x="230" y="82" text-anchor="middle">EU-only · allowlist</text>
+              <!-- Supabase + dashboard -->
+              <rect class="arch-box" x="334" y="40" width="120" height="48" rx="8"/>
+              <text class="arch-label" x="394" y="60" text-anchor="middle">Supabase</text>
+              <text class="arch-sub" x="394" y="74" text-anchor="middle">dashboard + AI agent</text>
+              <!-- Connectors (bidirectional) -->
+              <line class="arch-line" x1="126" y1="64" x2="170" y2="64"/>
+              <line class="arch-line" x1="290" y1="64" x2="334" y2="64"/>
+              <text class="arch-sub" x="148" y="58" text-anchor="middle">REST</text>
+              <text class="arch-sub" x="312" y="58" text-anchor="middle">RPC</text>
+              <text class="arch-caption" x="230" y="124" text-anchor="middle">BRAO- &amp; GDPR-compliant · one AI gateway for every call</text>
+            </svg>
+            <h4>
+              <span class="project-icon"><i class="fas fa-scale-balanced"></i></span>
+              Legal-Tech Production System
+            </h4>
+            <p>
+              A BRAO and GDPR-compliant web app for a German law firm, taken from an inherited MVP to production. <span class="text-muted">(Client work, confidential, so this is the architecture rather than screenshots.)</span>
+            </p>
+            <p style="margin-top: 10px;">
+              A self-hosted n8n layer syncs the app with the firm's external case-management and accounting system both ways, over REST and webhooks. Every AI call goes through one EU-only anonymisation gateway with a sub-processor allowlist, so nothing identifiable ever leaves the approved providers. It also handles document generation with Gotenberg, a state machine for court deadlines, and an in-app agent for searching cases.
+            </p>
+            <div class="skill-tags" style="margin-top: 10px">
+              <span>Next.js 15</span>
+              <span>n8n</span>
+              <span>Supabase</span>
+              <span>Azure OpenAI EU</span>
+              <span>Gotenberg</span>
+              <span>BRAO / GDPR</span>
+            </div>
+          </div>
+          <!-- Slide 2 - Career Intelligence SaaS -->
+          <div class="project-slide">
+            <img class="project-image" src="assets/images/Dashboard.png" alt="Career Intelligence SaaS dashboard" onerror="this.remove()" />
             <h4>
               <span class="project-icon"><i class="fas fa-rocket"></i></span>
-              SwiftJob: Career Intelligence Platform
+              Career Intelligence SaaS
             </h4>
             <p>
-              Three repos, one product. A standalone aggregator scrapes 29 job sources across hundreds of companies, a Flask backend scores them through a 5-tier AI funnel, and a Next.js dashboard lets users generate cover letters, do mock interviews, run career analytics, and more.
+              A three-repo subscription platform I built solo, end to end: a Flask backend, a bilingual Next.js frontend, and a standalone headless aggregator, each with its own CI/CD.
             </p>
             <p style="margin-top: 10px;">
-              Stripe billing with a credit system, bilingual (EN/DE). The aggregator runs on its own CRON cycle with circuit breakers per source. Deployed on Railway.
+              The core is a five-stage evaluation pipeline that turns raw listings into scored matches. It runs SQL constraints first, then skill-overlap, then batched LLM scoring across parallel workers, then a re-rank on the top group. Model routing is cost-tiered across Anthropic and OpenRouter, output is JSON-schema enforced, every operation has a fallback chain, and billing runs on credits with atomic RPC deductions and Stripe webhooks.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
-              <span>Next.js</span>
+              <span>Next.js 15</span>
               <span>Flask</span>
+              <span>PostgreSQL</span>
               <span>Supabase</span>
-              <span>OpenRouter</span>
-              <span>Claude</span>
+              <span>Multi-Model AI</span>
               <span>Stripe</span>
+            </div>
+          </div>
+          <!-- Slide 3 - Data Aggregation Pipeline -->
+          <div class="project-slide">
+            <h4>
+              <span class="project-icon"><i class="fas fa-database"></i></span>
+              Data Aggregation Pipeline
+            </h4>
+            <p>
+              A headless ingestion engine that runs unattended across 29 different sources.
+            </p>
+            <p style="margin-top: 10px;">
+              The 29 parsers cover REST APIs, ATS systems, RSS feeds, and HTML scrapers, and pull tens of thousands of records per run into one canonical store. Deduplication runs in three layers (external ID, strict hash, fuzzy hash), with a batch pre-fetch that collapses 3N lookups down to three queries. Each source has its own circuit breaker that auto-resets after 24 hours, and adding a new source means one parser file and a config entry, nothing else.
+            </p>
+            <div class="skill-tags" style="margin-top: 10px">
+              <span>Python</span>
+              <span>PostgreSQL</span>
+              <span>BeautifulSoup</span>
               <span>Docker</span>
-              <span>Railway</span>
+              <span>Resilience Engineering</span>
             </div>
           </div>
-
-          <!-- Slide 2 — CoW Protocol Solver -->
+          <!-- Slide 4 - Multi-Tenant Field Sales PWA -->
           <div class="project-slide">
-            <img class="project-image" src="assets/images/cowsolver.png" alt="CoW Protocol Solver" />
             <h4>
-              <span class="project-icon"><i class="fas fa-exchange-alt"></i></span>
-              CoW Protocol Solver
+              <span class="project-icon"><i class="fas fa-mobile-screen-button"></i></span>
+              Multi-Tenant Field Sales PWA
             </h4>
             <p>
-              Rust solver that competes in CoW Protocol batch auctions on Arbitrum. Every 8 seconds it receives a batch of trade orders and figures out the best way to route them through 1,400 liquidity pools across 7 DEXs.
+              A mobile-first B2B tool that replaces Excel for FMCG field reps during retail campaigns.
             </p>
             <p style="margin-top: 10px;">
-              Solves in 5 phases: direct pool routing, multi-hop via intermediaries, split across multiple pools, graph-based pathfinding, then falls back to external aggregators if needed.
+              Every table has row-level security through a SECURITY DEFINER membership function, and organisations provision themselves on first login. There is a campaign, category, and variant hierarchy with template cloning, four quantity modes for order entry, and idempotent upserts under a unique constraint. The PWA tolerates a flaky connection and is built for reps over fifty: big touch targets, as little typing per order as possible.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
-              <span>Rust</span>
-              <span>Tokio</span>
-              <span>Axum</span>
-              <span>DeFi</span>
-              <span>Uniswap</span>
-              <span>Curve</span>
-              <span>Balancer</span>
-              <span>Arbitrum</span>
-            </div>
-          </div>
-
-          <!-- Slide 3 — Talon Sales -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/talon.png" alt="Talon Sales" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-store"></i></span>
-              Talon: Field Sales Execution System
-            </h4>
-            <p>
-              Client project. A PWA that replaces the Excel sheets field reps use to track 14-day promotion campaigns across German retail chains. The reps are 50-60+, so the UX had to be dead simple and mobile-first.
-            </p>
-            <p style="margin-top: 10px;">
-              Multi-tenant with Supabase RLS, 4 different quantity input modes depending on product type, real product catalog with templates, follow-up tracking, and campaign dashboards.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>Next.js</span>
+              <span>Next.js 15</span>
               <span>TypeScript</span>
               <span>Supabase</span>
               <span>Tailwind</span>
-              <span>PWA</span>
-              <span>Multi-tenant</span>
-              <span>RLS</span>
+              <span>Row-Level Security</span>
             </div>
           </div>
-
-          <!-- Slide 4 — Contract Auditor -->
+          <!-- Slide 5 - Solidity Security Scanner -->
           <div class="project-slide">
-            <img class="project-image" src="assets/images/contractaudit.png" alt="Contract Auditor" />
             <h4>
-              <span class="project-icon"><i class="fas fa-shield-alt"></i></span>
-              Smart Contract Security Scanner
+              <span class="project-icon"><i class="fas fa-shield-halved"></i></span>
+              Solidity Security Scanner
             </h4>
             <p>
-              Runs slither static analysis on Solidity contracts, then has Claude do a deeper review looking for 10 vulnerability types (reentrancy, access control, integer overflow, unchecked calls, and more). If it can't produce a working exploit, it doesn't report it.
+              Static analysis plus an LLM deep-review pass for EVM smart contracts, packaged as a subscription product.
             </p>
             <p style="margin-top: 10px;">
-              Pulls verified contracts from Etherscan across 8 chains, offers 3 scan depths, generates PDF reports. Stripe billing with free/pro/enterprise tiers.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>FastAPI</span>
-              <span>Solidity</span>
-              <span>slither</span>
-              <span>Claude</span>
-              <span>Stripe</span>
-              <span>Multi-chain</span>
-              <span>PDF Generation</span>
-            </div>
-          </div>
-
-          <!-- Slide 5 — Polymarket AI -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/polymarket.png" alt="Polymarket AI" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-chart-line"></i></span>
-              Polymarket AI Scanner
-            </h4>
-            <p>
-              Scans 500+ Polymarket prediction markets twice a day. For each one, GPT estimates the actual probability using live web search, then compares that to what the market thinks. If there's a gap, it paper-trades with Half-Kelly sizing.
-            </p>
-            <p style="margin-top: 10px;">
-              Most of the cost savings come from tiered analysis: only high-signal markets get the expensive deep research. Everything else hits cache. 90%+ cache hit after the first day. Tracks Brier scores to measure if the predictions are actually calibrated. FastAPI dashboard on Railway.
+              It checks ten vulnerability classes (reentrancy, access control, integer overflow, unchecked calls, delegatecall, and more) by pairing Slither with a Claude review pass. It pulls verified source from eight EVM chains through Etherscan, offers three scan depths by tier, and follows a no-exploit-no-report rule to keep false positives down. 154 tests back it.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
               <span>Python</span>
               <span>FastAPI</span>
-              <span>OpenRouter</span>
-              <span>Polymarket</span>
-              <span>SQLite</span>
-              <span>Railway</span>
-              <span>Kelly Criterion</span>
-            </div>
-          </div>
-
-          <!-- Slide 6 — Crypto Tax -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/cryptotax.png" alt="Crypto Tax Calculator" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-calculator"></i></span>
-              DeFi Tax Calculator
-            </h4>
-            <p>
-              Import your EVM wallets, Solana wallets, or CEX CSV exports and it figures out what happened: swaps, LP deposits, staking rewards, bridges, airdrops, NFTs. Then calculates your cost basis three ways (FIFO, LIFO, HIFO) so you can compare.
-            </p>
-            <p style="margin-top: 10px;">
-              Generates IRS Form 8949 with the short/long-term split done for you. All the money math uses Decimal, not floats, because rounding errors in tax software is a bad time. Everything stays local in SQLite. Nothing leaves your machine.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>Python</span>
-              <span>FastAPI</span>
-              <span>Decimal</span>
-              <span>Etherscan</span>
-              <span>Helius</span>
+              <span>Slither</span>
+              <span>Anthropic</span>
+              <span>Next.js</span>
               <span>Stripe</span>
-              <span>Privacy-first</span>
-            </div>
-          </div>
-
-          <!-- Slide 8 — Solana Trading Bot -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/tradingbot.jpg" alt="Solana Trading Bot" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-bolt"></i></span>
-              Solana Trading Bot
-            </h4>
-            <p>
-              Real-time Solana trading engine. Monitors memecoins, catches early entries, and tracks market activity across Pump.fun, Raydium, and Axiom.
-            </p>
-            <p style="margin-top: 10px;">
-              Uses LLM-based filtering to sort signal from noise in Twitter and Telegram feeds. Has a dashboard for position tracking and risk management.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>React</span>
-              <span>Web3</span>
-              <span>Solana</span>
-              <span>LLM Integration</span>
-              <span>Trading Bots</span>
-              <span>Alpha Tools</span>
-            </div>
-          </div>
-
-          <!-- Slide 9 — JL Shopping -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/jlshopping.jpg" alt="JL Shopping" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-store"></i></span>
-              JL Shopping
-            </h4>
-            <p>
-              Did the full digital setup for a small retailer. Shopify store, domain, branding, legal pages, product catalog.
-            </p>
-            <p style="margin-top: 10px;">
-              Then the operational stuff: multichannel feeds to Otto, Kaufland, Amazon, eBay. SEO automation via n8n. Internal tooling like company email, cloud storage, inventory software, and a mobile barcode scanner for warehouse intake.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>Full-Stack Ecom</span>
-              <span>Shopify</span>
-              <span>n8n</span>
-              <span>Multichannel Feeds</span>
-              <span>System Setup</span>
-              <span>Mobile Tools</span>
-              <span>SEO Automation</span>
-            </div>
-          </div>
-
-          <!-- Slide 10 — Prompt Compass -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/promptcompass.jpg" alt="Prompt Compass" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-compass"></i></span>
-              Prompt Compass
-            </h4>
-            <p>
-              Chrome extension that adds structure to long ChatGPT conversations.<br>
-              You can drop markers, tag highlights, and index threads so you can actually find things later instead of scrolling forever.
-            </p>
-            <p style="margin-top: 10px;">
-              Detects when you switch conversations, persists everything in <code>chrome.storage.local</code>, and keeps state synced across tabs. Small and fast.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>JavaScript</span>
-              <span>Chrome Extensions</span>
-              <span>Prompt Engineering</span>
-              <span>UI Design</span>
-              <span>Persistent Storage</span>
-            </div>
-          </div>
-
-          <!-- Slide 11 — Reddit Trend Engine -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/trendengine.jpg" alt="Trend Engine" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-robot"></i></span>
-              Reddit Trend Engine
-            </h4>
-            <p>
-              n8n pipeline that watches specific subreddits via RSS, pulls posts, and runs them through GPT for tagging and clustering.
-            </p>
-            <p style="margin-top: 10px;">
-              The output is a list of trends, recurring pain points, and product ideas people are actually talking about. Used it for SaaS research and keyword discovery.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>n8n</span>
-              <span>Reddit Scraping</span>
-              <span>GPT Integration</span>
-              <span>Trend Analysis</span>
-              <span>Prompt Engineering</span>
-              <span>Market Research</span>
-            </div>
-          </div>
-
-          <!-- Slide 12 — GPT Prompt Pack Factory -->
-          <div class="project-slide">
-            <img class="project-image" src="assets/images/promptfactory.jpg" alt="Prompt Pack Factory" />
-            <h4>
-              <span class="project-icon"><i class="fas fa-cubes"></i></span>
-              GPT Prompt Pack Factory
-            </h4>
-            <p>
-              Give it a niche or trend keyword and it generates a full prompt library. n8n chains the prompts, GPT writes and enriches them, and the output is a ZIP-ready pack.
-            </p>
-            <p style="margin-top: 10px;">
-              Markdown or JSON, ready to sell on Gumroad, drop in a Telegram group, or just use internally. Basically a content factory with one input.
-            </p>
-            <div class="skill-tags" style="margin-top: 10px">
-              <span>n8n</span>
-              <span>Prompt Engineering</span>
-              <span>Micro-SaaS</span>
-              <span>LLM Automation</span>
-              <span>Productization</span>
-              <span>Workflow Design</span>
             </div>
           </div>
 
@@ -2005,27 +1880,29 @@
             <h2>Experience Highlights</h2>
             <div class="timeline">
               <div class="timeline-item">
-                <div class="timeline-date">Dec 2024 – Present</div>
-                <h3 class="timeline-title">Independent AI Automation Projects</h3>
+                <div class="timeline-date">2024 to now</div>
+                <h3 class="timeline-title">Independent Engineering & Production Delivery</h3>
                 <p>
-                  Designing and shipping AI-powered SaaS products, data aggregation systems, and workflow automation tooling. Building DeFi protocol infrastructure including a competitive batch auction solver. Delivering client projects in field sales automation. Developing smart contract security scanners, prediction market systems, and crypto tax tooling.
+                  I architect and ship production systems solo across FinTech, legal-tech, B2B SaaS, and DeFi tooling.<br>
+                  The workflow is AI-augmented: I own the architecture, let multiple agents generate code, and validate their output closely before it ships.<br>
+                  Paid client work delivered end to end, including a German legal-tech platform and SMB websites.
                 </p>
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-date">Oct 2021 – Dec 2024</div>
-                <h3 class="timeline-title">Technical Project Manager – Better Payment GmbH</h3>
+                <div class="timeline-date">Oct 2021 to Dec 2024</div>
+                <h3 class="timeline-title">Technical Project Manager · Better Payment GmbH</h3>
                 <p>
-                  Led developer coordination, feature scoping, and cross-team delivery for a FinTech SaaS platform.<br>
-                  Translated client needs into specs and GitHub issues, managed sprint cycles, and worked directly with stakeholders on product delivery.
+                  The main technical escalation point between onboarding and engineering for a FinTech SaaS platform.<br>
+                  I ran the full delivery cycle: requirements intake, sprint planning, developer coordination, release, and client presentation. I also built a WordPress and Zapier onboarding pipeline that turned client information into structured tickets.
                 </p>
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-date">2017 – 2019</div>
-                <h3 class="timeline-title">E-Commerce Manager – Getränke Stöhr GmbH</h3>
+                <div class="timeline-date">2017 to 2019</div>
+                <h3 class="timeline-title">IT Specialist · Getränke Stöhr GmbH</h3>
                 <p>
-                  Ran Amazon, eBay, and custom shop operations. Managed product listings, supplier workflows, returns, and pricing across platforms.
+                  Sole IT contact for 50+ staff across office and warehouse operations. I built a WordPress and WooCommerce webshop that handled 100+ orders a month, wired into warehouse delivery.
                 </p>
               </div>
             </div>
@@ -2039,18 +1916,16 @@
           <div class="card">
             <h2>Systems & Architecture</h2>
             <p class="text-muted">
-              Patterns, technologies, and workflows I design into production systems
+              The patterns and tools I build into production systems
             </p>
             <div class="filter-buttons" id="filterButtons">
               <button class="filter-btn active" data-skill="all">All</button>
               <button class="filter-btn" data-skill="architecture">Architecture</button>
+              <button class="filter-btn" data-skill="integration">Integration</button>
               <button class="filter-btn" data-skill="ai">AI / LLM</button>
               <button class="filter-btn" data-skill="frontend">Frontend</button>
               <button class="filter-btn" data-skill="backend">Backend</button>
               <button class="filter-btn" data-skill="data">Data</button>
-              <button class="filter-btn" data-skill="defi">DeFi / Blockchain</button>
-              <button class="filter-btn" data-skill="automation">Automation</button>
-              <button class="filter-btn" data-skill="ecommerce">E-Commerce</button>
               <button class="filter-btn" data-skill="devops">DevOps</button>
               <button class="filter-btn" data-skill="pm">Product / PM</button>
             </div>
@@ -2067,7 +1942,7 @@
                 ></span>
               <span data-skill="architecture" class="tooltip"
                 >REST API Design<span class="tooltiptext"
-                  >Flask Blueprints with auth middleware, validation, structured error handling</span
+                  >Flask/FastAPI with auth middleware, validation, structured error handling</span
                 ></span>
               <span data-skill="architecture" class="tooltip"
                 >Database Schema Design<span class="tooltiptext"
@@ -2077,7 +1952,21 @@
                 >Runtime Resilience<span class="tooltiptext"
                   >Circuit breakers, retry logic, concurrency control, health tracking, graceful degradation</span
                 ></span>
-              <span data-skill="architecture" class="tooltip"
+
+              <!-- Integration -->
+              <span data-skill="integration" class="tooltip"
+                >n8n Workflow Orchestration<span class="tooltiptext"
+                  >Self-hosted n8n, bidirectional system sync, credentials, retries, triggers</span
+                ></span>
+              <span data-skill="integration" class="tooltip"
+                >Bidirectional Sync<span class="tooltiptext"
+                  >Keeping two systems of record in step over REST and webhooks, with conflict handling</span
+                ></span>
+              <span data-skill="integration" class="tooltip"
+                >API Integration<span class="tooltiptext"
+                  >REST APIs, OAuth flows, webhooks, rate-limited clients across third-party systems</span
+                ></span>
+              <span data-skill="integration" class="tooltip"
                 >Signal Filtering<span class="tooltiptext"
                   >Multi-layer noise reduction: dedup, hash matching, relevance scoring</span
                 ></span>
@@ -2085,7 +1974,7 @@
               <!-- AI / LLM -->
               <span data-skill="ai" class="tooltip"
                 >Multi-Model Orchestration<span class="tooltiptext"
-                  >Cost-aware routing across Claude, Gemini, DeepSeek: different models for different tasks</span
+                  >Cost-aware routing across Anthropic and OpenRouter: different models for different tasks</span
                 ></span>
               <span data-skill="ai" class="tooltip"
                 >AI Evaluation Pipelines<span class="tooltiptext"
@@ -2100,8 +1989,8 @@
                   >Few-shot, Chain-of-Thought, JSON output shaping, injection hardening</span
                 ></span>
               <span data-skill="ai" class="tooltip"
-                >AI-Augmented Workflows<span class="tooltiptext"
-                  >LLM-powered trend mining, listing enrichment, narrative filtering, sentiment tracking</span
+                >Anonymisation Gateways<span class="tooltiptext"
+                  >Routing every LLM call through a single PII-stripping, EU-only sub-processor allowlist</span
                 ></span>
 
               <!-- Frontend -->
@@ -2122,14 +2011,14 @@
                   >Live status displays, polling, optimistic updates, loading states, error boundaries</span
                 ></span>
               <span data-skill="frontend" class="tooltip"
-                >Browser Extensions<span class="tooltiptext"
-                  >Chrome extensions with session-aware state, DOM mutation, persistent storage</span
+                >Progressive Web Apps<span class="tooltiptext"
+                  >Offline-tolerant PWAs, mobile-first layouts, large touch targets</span
                 ></span>
 
               <!-- Backend -->
               <span data-skill="backend" class="tooltip"
-                >Flask / Python<span class="tooltiptext"
-                  >App factory, Blueprints, APScheduler, background workers, JWT auth</span
+                >FastAPI / Flask / Python<span class="tooltiptext"
+                  >App factory, Blueprints, schedulers, background workers, JWT auth</span
                 ></span>
               <span data-skill="backend" class="tooltip"
                 >Supabase PostgreSQL<span class="tooltiptext"
@@ -2141,11 +2030,11 @@
                 ></span>
               <span data-skill="backend" class="tooltip"
                 >Background Workers<span class="tooltiptext"
-                  >Scheduled jobs: data fetching, evaluation, auto-apply, daily catch-up</span
+                  >Scheduled jobs: data fetching, evaluation, sync, daily catch-up</span
                 ></span>
               <span data-skill="backend" class="tooltip"
-                >API Integration<span class="tooltiptext"
-                  >REST APIs, OAuth flows, webhooks, rate-limited clients</span
+                >Billing Systems<span class="tooltiptext"
+                  >Credit-based billing, atomic RPC deductions, Stripe webhooks, fallback handling</span
                 ></span>
 
               <!-- Data -->
@@ -2159,69 +2048,11 @@
                 ></span>
               <span data-skill="data" class="tooltip"
                 >Web Scraping<span class="tooltiptext"
-                  >Playwright stealth, proxy rotation, rate limiting, structured extraction</span
+                  >Structured extraction, rate limiting, scheduled runs, normalisation</span
                 ></span>
               <span data-skill="data" class="tooltip"
                 >Data Wrangling<span class="tooltiptext"
-                  >CSV workflows, Google Sheets automation, regex parsing, market signal extraction</span
-                ></span>
-
-              <!-- DeFi / Blockchain -->
-              <span data-skill="defi" class="tooltip"
-                >DEX Integration<span class="tooltiptext"
-                  >Uniswap V2/V3, Curve StableSwap, Balancer weighted pools, Camelot, Trader Joe — pool math and calldata encoding</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >Batch Auction Solving<span class="tooltiptext"
-                  >CoW Protocol solver: 5-phase pipeline, split routing, graph pathfinding, UDCP enforcement</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >Settlement Encoding<span class="tooltiptext"
-                  >GPv2Settlement calldata assembly, token approvals, interaction encoding per DEX type</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >Smart Contract Security<span class="tooltiptext"
-                  >Slither static analysis + Claude review, 10 vulnerability classes, multi-chain Etherscan</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >On-Chain Data Pipelines<span class="tooltiptext"
-                  >WebSocket event feeds, The Graph subgraphs, pool indexing, multicall batching, JIT refresh</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >Prediction Markets<span class="tooltiptext"
-                  >Polymarket CLOB SDK, EIP-712 signing, probability estimation, Kelly criterion sizing</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >DeFi Tax Logic<span class="tooltiptext"
-                  >FIFO/LIFO/HIFO cost basis, LP impermanent loss, bridge detection, Form 8949 generation</span
-                ></span>
-              <span data-skill="defi" class="tooltip"
-                >Multi-Chain<span class="tooltiptext"
-                  >Ethereum, Arbitrum, Solana — chain-specific RPC, gas models, and API integrations</span
-                ></span>
-
-              <!-- Automation -->
-              <span data-skill="automation" class="tooltip"
-                >Browser Automation<span class="tooltiptext"
-                  >Playwright stealth, ATS form detection, Tampermonkey scripting, anti-detection</span
-                ></span>
-              <span data-skill="automation" class="tooltip"
-                >n8n / Zapier<span class="tooltiptext"
-                  >Multi-step workflows with credentials, retries, triggers, GPT-enhanced pipelines</span
-                ></span>
-              <span data-skill="automation" class="tooltip"
-                >Trading Logic<span class="tooltiptext"
-                  >Multi-API trade automation, LLM-based narrative filtering, sentiment tracking</span
-                ></span>
-
-              <!-- E-Commerce -->
-              <span data-skill="ecommerce" class="tooltip"
-                >Shopify & Multichannel<span class="tooltiptext"
-                  >Store setup, Otto/Kaufland/Amazon/eBay feeds, unified pricing and inventory</span
-                ></span>
-              <span data-skill="ecommerce" class="tooltip"
-                >Product & SEO Automation<span class="tooltiptext"
-                  >Listing enrichment, AI-powered descriptions, feed pipelines, ERP integration</span
+                  >CSV workflows, Google Sheets automation, regex parsing, signal extraction</span
                 ></span>
 
               <!-- DevOps -->
@@ -2241,7 +2072,7 @@
               <!-- Product / PM -->
               <span data-skill="pm" class="tooltip"
                 >Solo Product Development<span class="tooltiptext"
-                  >Roadmap, sprint planning, iterative delivery, all self-managed across 4 phases</span
+                  >Roadmap, sprint planning, iterative delivery, all self-managed across phases</span
                 ></span>
               <span data-skill="pm" class="tooltip"
                 >Stakeholder Translation<span class="tooltiptext"
@@ -2249,7 +2080,7 @@
                 ></span>
               <span data-skill="pm" class="tooltip"
                 >Client Operations<span class="tooltiptext"
-                  >Onboarding flows, KYC workflows, CRM systems, support tooling</span
+                  >Onboarding flows, CRM systems, support tooling, delivery coordination</span
                 ></span>
               <span data-skill="pm" class="tooltip"
                 >GDPR / DSGVO Compliance<span class="tooltiptext"
@@ -2264,9 +2095,9 @@
 <section id="ctaSection" class="cta parallax-section animate delay-4">
   <div class="container">
     <div class="card">
-      <h2>Let's talk.</h2>
+      <h2>Let's build something.</h2>
       <p>
-        I design and ship full-stack systems with AI acceleration. Production-ready MVPs in weeks, complex workflow automation, API integrations that actually work. If you need something built and running, not just specced, reach out.
+        I'm available for freelance projects in system integration, AI/LLM, and full-stack development. Based in Berlin, working remote across the DACH region.
       </p>
       <div class="cta-container">
         <div class="cta-glow"></div>
@@ -2279,7 +2110,10 @@
   </div>
 </section>
 
-
+    </div>
+    <!-- /#cardWrapper -->
+  </div>
+  <!-- /.container -->
 
   <!-- ===========================
        SCRIPTS
@@ -2836,9 +2670,9 @@
         border.className = 'gradient-border';
         wrapper.insertBefore(border, card);
 
-        // Tilt on mousemove — freeze when over interactive elements
+        // Tilt on mousemove - freeze when over interactive elements
         card.addEventListener('mousemove', (e) => {
-          // Don't update tilt when hovering tooltips/tags/buttons — keeps card stable so :hover works
+          // Don't update tilt when hovering tooltips/tags/buttons - keeps card stable so :hover works
           if (e.target.closest('.tooltip') || e.target.closest('.skill-tags span') || e.target.closest('.filter-btn') || e.target.closest('.project-nav')) return;
 
           const rect = card.getBoundingClientRect();
