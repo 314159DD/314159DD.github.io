@@ -1320,6 +1320,24 @@
       #cardWrapper .skill-tags {
         margin: clamp(8px, 1.2vh, 24px) 0;
       }
+
+      /* Project slider: keep the card inside the viewport, scroll internally if tall */
+      #projectsSection .card {
+        max-height: calc(100vh - var(--header-height) - 40px);
+        overflow-y: auto;
+      }
+      #projectsSection .project-image {
+        max-height: 24vh;
+        width: auto;
+        max-width: min(400px, 80%);
+        min-height: 0;
+        margin-bottom: clamp(8px, 1.5vh, 18px);
+      }
+      #projectsSection .arch-diagram {
+        max-height: 22vh;
+        width: auto;
+        margin-bottom: clamp(8px, 1.5vh, 18px);
+      }
       #cardWrapper .skill-tags span {
         font-size: clamp(0.55rem, 1vh, 0.9rem);
         padding: clamp(2px, 0.5vh, 8px) clamp(6px, 0.8vh, 14px);
@@ -1804,6 +1822,7 @@
           </div>
           <!-- Slide 3 - Data Aggregation Pipeline -->
           <div class="project-slide">
+            <img class="project-image" src="assets/images/trendengine.jpg" alt="Data aggregation pipeline" onerror="this.remove()" />
             <h4>
               <span class="project-icon"><i class="fas fa-database"></i></span>
               Data Aggregation Pipeline
@@ -1824,6 +1843,7 @@
           </div>
           <!-- Slide 4 - Multi-Tenant Field Sales PWA -->
           <div class="project-slide">
+            <img class="project-image" src="assets/images/talon.png" alt="Multi-tenant field sales PWA" onerror="this.remove()" />
             <h4>
               <span class="project-icon"><i class="fas fa-mobile-screen-button"></i></span>
               Multi-Tenant Field Sales PWA
@@ -1844,6 +1864,7 @@
           </div>
           <!-- Slide 5 - Solidity Security Scanner -->
           <div class="project-slide">
+            <img class="project-image" src="assets/images/contractaudit.png" alt="Solidity security scanner" onerror="this.remove()" />
             <h4>
               <span class="project-icon"><i class="fas fa-shield-halved"></i></span>
               Solidity Security Scanner
