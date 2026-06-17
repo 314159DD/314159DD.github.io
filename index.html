@@ -1327,11 +1327,11 @@
         overflow-y: auto;
       }
       #projectsSection .project-image {
-        max-height: 24vh;
+        max-height: 20vh;
         width: auto;
-        max-width: min(400px, 80%);
+        max-width: min(360px, 72%);
         min-height: 0;
-        margin-bottom: clamp(8px, 1.5vh, 18px);
+        margin-bottom: clamp(6px, 1.2vh, 14px);
       }
       #projectsSection .arch-diagram {
         max-height: 22vh;
@@ -1564,7 +1564,7 @@
   />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
 </head>
 
@@ -1787,7 +1787,7 @@
               A BRAO and GDPR-compliant web app for a German law firm, taken from an inherited MVP to production. <span class="text-muted">(Client work, confidential, so this is the architecture rather than screenshots.)</span>
             </p>
             <p style="margin-top: 10px;">
-              A self-hosted n8n layer syncs the app with the firm's external case-management and accounting system both ways, over REST and webhooks. Every AI call goes through one EU-only anonymisation gateway with a sub-processor allowlist, so nothing identifiable ever leaves the approved providers. It also handles document generation with Gotenberg, a state machine for court deadlines, and an in-app agent for searching cases.
+              A self-hosted n8n layer syncs it both ways with the firm's case-management and accounting system over REST and webhooks. Every AI call routes through one EU-only anonymisation gateway with a sub-processor allowlist, so nothing identifiable leaves the approved providers. Plus Gotenberg document generation, a court-deadline state machine, and an in-app case-search agent.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
               <span>Next.js 15</span>
@@ -1809,7 +1809,7 @@
               A three-repo subscription platform I built solo, end to end: a Flask backend, a bilingual Next.js frontend, and a standalone headless aggregator, each with its own CI/CD.
             </p>
             <p style="margin-top: 10px;">
-              The core is a five-stage evaluation pipeline that turns raw listings into scored matches. It runs SQL constraints first, then skill-overlap, then batched LLM scoring across parallel workers, then a re-rank on the top group. Model routing is cost-tiered across Anthropic and OpenRouter, output is JSON-schema enforced, every operation has a fallback chain, and billing runs on credits with atomic RPC deductions and Stripe webhooks.
+              A five-stage pipeline turns raw listings into scored matches: SQL constraints, skill-overlap, batched LLM scoring across parallel workers, then a re-rank on the top group. Model routing is cost-tiered across Anthropic and OpenRouter, output is JSON-schema enforced, and billing runs on credits with atomic RPC deductions and Stripe webhooks.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
               <span>Next.js 15</span>
@@ -1831,7 +1831,7 @@
               A headless ingestion engine that runs unattended across 29 different sources.
             </p>
             <p style="margin-top: 10px;">
-              The 29 parsers cover REST APIs, ATS systems, RSS feeds, and HTML scrapers, and pull tens of thousands of records per run into one canonical store. Deduplication runs in three layers (external ID, strict hash, fuzzy hash), with a batch pre-fetch that collapses 3N lookups down to three queries. Each source has its own circuit breaker that auto-resets after 24 hours, and adding a new source means one parser file and a config entry, nothing else.
+              29 parsers across REST APIs, ATS systems, RSS feeds, and scrapers pull tens of thousands of records per run into one store. Three-layer dedup (external ID, strict hash, fuzzy hash) with a batch pre-fetch that collapses 3N lookups to three queries. Per-source circuit breakers auto-reset after 24h, and a new source is one parser file plus a config entry.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
               <span>Python</span>
@@ -1852,7 +1852,7 @@
               A mobile-first B2B tool that replaces Excel for FMCG field reps during retail campaigns.
             </p>
             <p style="margin-top: 10px;">
-              Every table has row-level security through a SECURITY DEFINER membership function, and organisations provision themselves on first login. There is a campaign, category, and variant hierarchy with template cloning, four quantity modes for order entry, and idempotent upserts under a unique constraint. The PWA tolerates a flaky connection and is built for reps over fifty: big touch targets, as little typing per order as possible.
+              Row-level security on every table via a SECURITY DEFINER membership function, with organisations auto-provisioned on first login. A campaign, category, and variant hierarchy with template cloning, four quantity modes, and idempotent upserts under a unique constraint. Offline-tolerant and built for reps over fifty: big touch targets, minimal typing per order.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
               <span>Next.js 15</span>
@@ -1873,7 +1873,7 @@
               Static analysis plus an LLM deep-review pass for EVM smart contracts, packaged as a subscription product.
             </p>
             <p style="margin-top: 10px;">
-              It checks ten vulnerability classes (reentrancy, access control, integer overflow, unchecked calls, delegatecall, and more) by pairing Slither with a Claude review pass. It pulls verified source from eight EVM chains through Etherscan, offers three scan depths by tier, and follows a no-exploit-no-report rule to keep false positives down. 154 tests back it.
+              Ten vulnerability classes (reentrancy, access control, integer overflow, unchecked calls, delegatecall, and more) checked by pairing Slither with a Claude review pass. Verified source from eight EVM chains via Etherscan, three scan depths by tier, and a no-exploit-no-report rule against false positives. Backed by 154 tests.
             </p>
             <div class="skill-tags" style="margin-top: 10px">
               <span>Python</span>
